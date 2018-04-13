@@ -1,0 +1,79 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eaeaea"
+    tools:context="com.example.sisco.ayomileh.Fragment.EventFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/header"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-16dp"
+        android:background="@color/putih"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+         <EditText
+             android:id="@+id/edt_date"
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:layout_weight="1"
+             android:background="@android:color/transparent"
+             android:hint="Tanggal"
+             android:textSize="16sp"
+             android:drawableLeft="@drawable/ic_date"
+             android:drawablePadding="16dp"
+             android:padding="8dp"
+             android:clickable="true"
+             android:editable="false"/>
+
+        <EditText
+            android:id="@+id/edt_location"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawablePadding="16dp"
+            android:hint="Lokasi"
+            android:padding="8dp"
+            android:clickable="true"
+            android:editable="false"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:scrollbars="vertical"
+        android:background="@color/putih"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_blood"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_blood_white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+</RelativeLayout>

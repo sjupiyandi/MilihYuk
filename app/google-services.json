@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "181513091477",
+    "firebase_url": "https://ayomileh.firebaseio.com",
+    "project_id": "ayomileh",
+    "storage_bucket": "ayomileh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181513091477:android:8ba504bb5e5e7216",
+        "android_client_info": {
+          "package_name": "com.example.sisco.ayomileh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181513091477-7j5obovogcqk7hpasu4qvu2cgu9lv6b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz1w9ALby7jXwar4Vv2qHc8g_uA1X9v7I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

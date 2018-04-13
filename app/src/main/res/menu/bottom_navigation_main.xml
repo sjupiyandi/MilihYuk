@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/action_event"
+        android:enabled="true"
+        android:icon="@drawable/ic_event"
+        android:title="Event"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_scan"
+        android:enabled="true"
+        android:icon="@drawable/ic_scan"
+        android:title="Scan QR"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_info"
+        android:enabled="true"
+        android:icon="@drawable/ic_phone"
+        android:title="Info"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_person"
+        android:title="Profil"
+        app:showAsAction="ifRoom" />
+</menu>

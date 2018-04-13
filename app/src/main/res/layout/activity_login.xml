@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/putih"
+    tools:context="com.example.sisco.ayomileh.Activity.LoginActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_masuk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Masuk"
+                android:textSize="16sp"
+                android:textColor="#FFFF" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Masuk"
+        android:textSize="30sp"
+        android:textColor="#000"
+        />
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:hint="Nama Pengguna"
+        android:textColor="@color/hitam"
+        android:inputType="textEmailAddress"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_person"/>
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        android:textColor="@color/hitam"
+        android:inputType="textPassword"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_password"/>
+
+    <ProgressBar
+        android:id="@+id/pgbar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+    
+    <Button
+        android:id="@+id/btn_masuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:background="@color/colorPrimary"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Masuk"
+        android:textColor="@color/putih"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lupa Password ?"
+        android:textColor="@color/hitam"
+        android:layout_marginTop="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c2c2c2"
+        android:layout_margin="16dp"/>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#4469af"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:text="facebook"-->
+            <!--android:textColor="@color/putih"-->
+            <!--android:src="@drawable/btn_fb"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:text="Google"-->
+            <!--android:textColor="@color/putih"-->
+            <!--android:src="@drawable/btn_google"-->
+            <!--android:scaleType="fitXY"/>-->
+
+    <!--</LinearLayout>-->
+
+
+
+</LinearLayout>
