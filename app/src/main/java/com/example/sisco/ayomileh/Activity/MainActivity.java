@@ -57,15 +57,14 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.action_event:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.action_scan:
+                            case R.id.action_info:
                                 viewPager.setCurrentItem(1);
                                 break;
-                            case R.id.action_info:
+                            case R.id.action_profile:
                                 viewPager.setCurrentItem(2);
                                 break;
-                            case R.id.action_profile:
-                                viewPager.setCurrentItem(3);
-                                break;
+
+
                         }
                         return true;
                     }
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if(user == null){
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, Main3Activity.class);
             startActivity(intent);
             finish();
         } else {
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 4);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 3);
         viewPager.setAdapter(adapter);
     }
 

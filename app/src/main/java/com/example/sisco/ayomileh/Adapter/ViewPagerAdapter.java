@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.sisco.ayomileh.Fragment.EventFragment;
 import com.example.sisco.ayomileh.Fragment.InfoFragment;
+import com.example.sisco.ayomileh.Fragment.PemilihFragment;
 import com.example.sisco.ayomileh.Fragment.ProfilFragment;
 import com.example.sisco.ayomileh.Fragment.ScanFragment;
 
@@ -33,14 +34,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 EventFragment tab1 = new EventFragment();
                 return tab1;
             case 1:
-                ScanFragment tab2 = new ScanFragment();
+                InfoFragment tab2 = new InfoFragment();
                 return tab2;
             case 2:
-                InfoFragment tab3 = new InfoFragment();
+                ProfilFragment tab3 = new ProfilFragment();
                 return tab3;
-            case 3:
-                ProfilFragment tab4 = new ProfilFragment();
-                return tab4;
+
+
 
             default:
                 return null;

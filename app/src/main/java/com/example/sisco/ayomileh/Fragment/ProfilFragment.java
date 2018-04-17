@@ -12,10 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.example.sisco.ayomileh.Activity.DiajakActivity;
 import com.example.sisco.ayomileh.Activity.Main3Activity;
+import com.example.sisco.ayomileh.Activity.MengajakActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.example.sisco.ayomileh.Activity.AboutActivity;
@@ -27,7 +30,8 @@ import com.example.sisco.ayomileh.R;
 public class ProfilFragment extends Fragment implements View.OnClickListener{
 
     ImageView icMenu, imgLogout;
-    TextView txtLogout;
+    TextView  txtLogout;
+    LinearLayout mengajak, diajak;
 
     FirebaseAuth auth;
 
@@ -53,10 +57,14 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         icMenu = (ImageView) view.findViewById(R.id.ic_menu);
         imgLogout = (ImageView) view.findViewById(R.id.img_logout);
         txtLogout = (TextView) view.findViewById(R.id.txt_logout);
+        mengajak = (LinearLayout)  view.findViewById(R.id.mengajak);
+        diajak = (LinearLayout)  view.findViewById(R.id.diajak);
 
         icMenu.setOnClickListener(this);
         imgLogout.setOnClickListener(this);
         txtLogout.setOnClickListener(this);
+        mengajak.setOnClickListener(this);
+        diajak.setOnClickListener(this);
         return view;
     }
 
@@ -85,6 +93,13 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
             Intent intent = new Intent(getActivity(), Main3Activity.class);
             getActivity().startActivity(intent);
             getActivity().finish();
+        } else if (view == mengajak){
+            Intent intent = new Intent(getActivity(), MengajakActivity.class);
+            getActivity().startActivity(intent);
+        }else if (view == diajak){
+            Intent intent = new Intent(getActivity(), DiajakActivity.class);
+            getActivity().startActivity(intent);
+
         }
     }
 
