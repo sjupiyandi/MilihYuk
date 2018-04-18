@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.sisco.ayomileh.Fragment.InfoFragment"
-    android:background="#eaeaea">
+    tools:context="com.example.sisco.ayomileh.Activity.MengajakActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,32 +17,24 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info"
+                android:text="Ajakan Anda"
+                android:textSize="18sp"
                 android:textColor="@color/putih"/>
 
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <ScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:scrollbars="vertical"
+        android:background="@color/putih"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/btn_daftartetap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Daftar Pemilih Tetap"
-            android:textColor="@color/putih"/>
-
-    </ScrollView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

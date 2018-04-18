@@ -1,17 +1,21 @@
 package com.example.sisco.ayomileh.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
 import com.example.sisco.ayomileh.R;
 
-public class InfoFragment extends Fragment {
+public class InfoFragment extends Fragment implements View.OnClickListener{
 
+    Button btn_daftarTetap;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -27,8 +31,20 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+        btn_daftarTetap = (Button) view.findViewById(R.id.btn_daftartetap);
+
+        btn_daftarTetap.setOnClickListener(this);
+
+        return view;
     }
 
 
+    @Override
+    public void onClick(View view) {
+        if (view == btn_daftarTetap){
+            Intent intent = new Intent(getActivity(), DaftarTetapActivity.class);
+            startActivity(intent);
+        }
+    }
 }

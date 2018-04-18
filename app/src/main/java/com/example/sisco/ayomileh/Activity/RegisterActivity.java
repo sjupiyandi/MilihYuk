@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     Toolbar toolbar;
     EditText edtUsername, edtPassword, edtKonfirmasi;
-    String edtNoKtp, edtNoKk, edtNoTps;
+    String nama,alamat ,edtNoKtp, edtNoKk, edtNoTps;
     Button btnDaftar;
     ProgressBar pgbar;
 
@@ -61,6 +61,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         auth = FirebaseAuth.getInstance();
 
         Bundle extras = getIntent().getExtras();
+        nama = extras.getString("nama");
+        alamat = extras.getString("alamat");
         edtNoKtp = extras.getString("no_ktp");
         edtNoKk = extras.getString("no_kk");
         edtNoTps = extras.getString("no_tps");
@@ -103,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         writeNewUser(auth.getCurrentUser().getUid(), email);
                         getDataFromDatabase(auth.getCurrentUser().getUid());
                         updateData();
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, EditProfileActivity.class);
                         startActivity(intent);
 
                     }
@@ -141,6 +143,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void updateData(){
+        database.child("nama").setValue(nama);
+        database.child("alamat").setValue(alamat);
         database.child("no_ktp").setValue(edtNoKtp);
         database.child("no_kk").setValue(edtNoKk);
         database.child("no_tps").setValue(edtNoTps);
