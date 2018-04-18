@@ -31,7 +31,6 @@ import com.example.sisco.ayomileh.R;
  */
 public class EventFragment extends Fragment implements View.OnClickListener{
 
-    RecyclerView recyclerView;
     private ArrayList<EventModel> data;
     private EventAdapter adapter;
 
@@ -49,13 +48,8 @@ public class EventFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_event, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         data = EventModel.createEvent();
-        EventAdapter adapter = new EventAdapter(data);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         edtDate = (EditText) view.findViewById(R.id.edt_date);
         edtLocation = (EditText) view.findViewById(R.id.edt_location);
