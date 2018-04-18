@@ -28,12 +28,13 @@ import java.util.Map;
 public class UserActivity extends AppCompatActivity implements View.OnClickListener{
 
     Toolbar toolbar;
+    String nama2, status2, alamat2;
     TextView nama, status, alamat;
     EditText pesan;
     Button btnkirim;
 
     FirebaseAuth auth;
-    DatabaseReference database,databases;
+    DatabaseReference database,database2,databases;
     FirebaseUser mCurrent_user;
 
     public String user_id;
@@ -61,6 +62,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         auth = FirebaseAuth.getInstance();
         getDataFromDatabase(user_id);
         mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
+        getDataFromDatabases(mCurrent_user.getUid());
         databases = FirebaseDatabase.getInstance().getReference();
     }
 
@@ -73,6 +75,24 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                 nama.setText(userModel.getNama());
                 status.setText(userModel.getStatus());
                 alamat.setText(userModel.getAlamat());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getDataFromDatabases(String userId){
+        database2 = FirebaseDatabase.getInstance().getReference("users/" + userId);
+        database2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                nama2 = userModel.getNama();
+                status2= (userModel.getStatus());
+                alamat2= (userModel.getAlamat());
             }
 
             @Override
@@ -95,12 +115,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             MengajakModel mengajakModel = new MengajakModel("","","","");
             Map requestMap = new HashMap();
             requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/nama", nama.getText().toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/nama", nama.getText().toString());
             requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/alamat", alamat.getText().toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/alamat", alamat.getText().toString());
             requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/pesan", pesan.getText().toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/pesan", pesan.getText().toString());
             requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/type", "mengajak");
+
+            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/nama", nama2.toString());
+            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/alamat",alamat2.toString());
+            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/pesan", pesan.getText().toString());
             requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/type", "diajak");
             databases.updateChildren(requestMap, new DatabaseReference.CompletionListener() {
                 @Override

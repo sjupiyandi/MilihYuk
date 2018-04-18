@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(edtPassword.getText().toString().length() < 6){
                             Toast.makeText(LoginActivity.this, "Password salah", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Email atau password salah", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Username atau password salah", Toast.LENGTH_SHORT).show();
                         }
                         pgBar.setVisibility(View.GONE);
                         btnMasuk.setVisibility(View.VISIBLE);

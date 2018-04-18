@@ -17,6 +17,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.sisco.ayomileh.Activity.DiajakActivity;
+import com.example.sisco.ayomileh.Activity.EditProfileActivity;
 import com.example.sisco.ayomileh.Activity.Main3Activity;
 import com.example.sisco.ayomileh.Activity.MengajakActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,9 +30,8 @@ import com.example.sisco.ayomileh.R;
 
 public class ProfilFragment extends Fragment implements View.OnClickListener{
 
-    ImageView icMenu, imgLogout;
-    TextView  txtLogout;
-    LinearLayout mengajak, diajak;
+    TextView  jenis_kelamin, nama, keluar, ubah, status, tps, jml_mengajak, jml_poin, jml_diajak;
+    LinearLayout mengajak, diajak, poin;
 
     FirebaseAuth auth;
 
@@ -54,51 +54,47 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
-        icMenu = (ImageView) view.findViewById(R.id.ic_menu);
-        imgLogout = (ImageView) view.findViewById(R.id.img_logout);
-        txtLogout = (TextView) view.findViewById(R.id.txt_logout);
+
+        jenis_kelamin = (TextView) view.findViewById(R.id.jenis_kelamin);
+        nama = (TextView) view.findViewById(R.id.nama);
+        keluar = (TextView) view.findViewById(R.id.txt_keluar);
+        ubah = (TextView) view.findViewById(R.id.txt_ubah);
+        status = (TextView) view.findViewById(R.id.status);
+        tps = (TextView) view.findViewById(R.id.tps);
+        jml_mengajak = (TextView) view.findViewById(R.id.jml_mengajak);
+        jml_poin = (TextView) view.findViewById(R.id.jml_poin);
+        jml_diajak = (TextView) view.findViewById(R.id.jml_diajak);
         mengajak = (LinearLayout)  view.findViewById(R.id.mengajak);
         diajak = (LinearLayout)  view.findViewById(R.id.diajak);
+        poin = (LinearLayout) view.findViewById(R.id.poin);
 
-        icMenu.setOnClickListener(this);
-        imgLogout.setOnClickListener(this);
-        txtLogout.setOnClickListener(this);
+        keluar.setOnClickListener(this);
+        ubah.setOnClickListener(this);
         mengajak.setOnClickListener(this);
         diajak.setOnClickListener(this);
+        poin.setOnClickListener(this);
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        if(view == icMenu){
-            PopupMenu popup = new PopupMenu(getContext(), view);
-            MenuInflater inflater = popup.getMenuInflater();
-            inflater.inflate(R.menu.profile_menu, popup.getMenu());
-            popup.show();
-            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    if(menuItem.getItemId() == R.id.history_menu){
-                        Intent intent = new Intent(getActivity(), HistoryActivity.class);
-                        getContext().startActivity(intent);
-                    } else if (menuItem.getItemId() == R.id.about_menu){
-                        Intent intent = new Intent(getActivity(), AboutActivity.class);
-                        getContext().startActivity(intent);
-                    }
-                    return true;
-                }
-            });
-        } else if(view == txtLogout || view == imgLogout){
+        if(view == keluar){
             auth.signOut();
             Intent intent = new Intent(getActivity(), Main3Activity.class);
             getActivity().startActivity(intent);
             getActivity().finish();
-        } else if (view == mengajak){
+        } else if (view == ubah) {
+            Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+            getActivity().startActivity(intent);
+        }else if (view == mengajak){
             Intent intent = new Intent(getActivity(), MengajakActivity.class);
             getActivity().startActivity(intent);
         }else if (view == diajak){
             Intent intent = new Intent(getActivity(), DiajakActivity.class);
             getActivity().startActivity(intent);
+
+        }else if(view == poin){
 
         }
     }

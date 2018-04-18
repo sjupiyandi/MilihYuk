@@ -12,12 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
 import com.example.sisco.ayomileh.Activity.UserActivity;
 import com.example.sisco.ayomileh.Model.UserModel;
 import com.example.sisco.ayomileh.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,7 +32,7 @@ public class BelumFragment extends Fragment {
     private DatabaseReference mUsersDatabase;
 
     private LinearLayoutManager mLayoutManager;
-
+    FirebaseUser mCurrent_user;
 
     public BelumFragment() {
         // Required empty public constructor
@@ -52,6 +55,8 @@ public class BelumFragment extends Fragment {
 
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mUsersDatabase.keepSynced(true);
+
+        mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
 
         mLayoutManager = new LinearLayoutManager(getContext());
         mLayoutManager.setReverseLayout(true);
@@ -89,18 +94,19 @@ public class BelumFragment extends Fragment {
                 usersViewHolder.mView.findViewById(R.id.btn_ajak).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (user_id.equals(mCurrent_user.getUid())){
+                            Toast.makeText(getContext(), "Anda tidak bisa mengajak diri anda sendiri.", Toast.LENGTH_LONG).show();
 
-
-                        Intent intent = new Intent(getContext(), UserActivity.class);
-                        intent.putExtra("user_id", user_id);
-                        startActivity(intent);
-                        getActivity().finish();
-
+                        }else {
+                            Intent intent = new Intent(getContext(), UserActivity.class);
+                            intent.putExtra("user_id", user_id);
+                            startActivity(intent);
+                            getActivity().finish();
+                        }
                     }
                 });
             }
         };
-
 
         mUsersList.setAdapter(firebaseRecyclerAdapter);
 
