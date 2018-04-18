@@ -35,7 +35,6 @@ public class EventFragment extends Fragment implements View.OnClickListener{
     private ArrayList<EventModel> data;
     private EventAdapter adapter;
 
-    FloatingActionButton fabBlood;
     EditText edtDate, edtLocation;
 
     Calendar myCalendar = Calendar.getInstance();
@@ -51,8 +50,6 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_event, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        fabBlood = (FloatingActionButton) view.findViewById(R.id.fab_blood);
-        fabBlood.setOnClickListener(this);
 
         data = EventModel.createEvent();
         EventAdapter adapter = new EventAdapter(data);
@@ -98,10 +95,7 @@ public class EventFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if(view == fabBlood){
-            Intent intent = new Intent(getActivity(), RequestActivity.class);
-            getContext().startActivity(intent);
-        } else if (view == edtDate){
+        if (view == edtDate){
             new DatePickerDialog(getActivity(), date, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
