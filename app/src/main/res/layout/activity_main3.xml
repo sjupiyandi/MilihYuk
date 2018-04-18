@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF"
+    android:background="@color/colorPrimary"
     tools:context="com.example.sisco.ayomileh.Activity.Main3Activity">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/milihyuk_white"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
             />
@@ -29,7 +29,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="8dp"
             android:textSize="16dp"
-            android:textColor="#000"
+            android:textColor="#fff"
             />
 
     </LinearLayout>
@@ -44,33 +44,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary"
+            android:background="@color/putih"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:text="Daftar"
-            android:textColor="#fff"/>
+            android:textColor="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/btn_masuk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary"
+            android:background="@color/putih"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:text="Masuk"
-            android:textColor="#fff"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="16dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anda perlu bantuan?"
-            android:layout_marginTop="16dp"
-            android:textSize="16dp"
-            android:textColor="#000"
-            android:layout_gravity="center"
-            />
+
     </LinearLayout>
 
 </LinearLayout>

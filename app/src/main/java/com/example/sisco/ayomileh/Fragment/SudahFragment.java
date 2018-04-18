@@ -90,9 +90,7 @@ public class SudahFragment extends Fragment {
                 usersViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getContext(), UserActivity.class);
-                        intent.putExtra("user_id", user_id);
-                        startActivity(intent);
+
                     }
                 });
             }

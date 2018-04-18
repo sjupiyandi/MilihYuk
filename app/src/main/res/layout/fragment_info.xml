@@ -24,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Info"
+                android:textSize="18dp"
                 android:textColor="@color/putih"/>
 
         </RelativeLayout>
@@ -31,18 +32,40 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-        <Button
-            android:id="@+id/btn_daftartetap"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Daftar Pemilih Tetap"
-            android:textColor="@color/putih"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_daftarcalon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/putih"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Profile Pasangan Calon"
+                android:textColor="@color/hitam"/>
+
+            <Button
+                android:id="@+id/btn_daftartetap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/putih"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Daftar Pemilih Tetap"
+                android:textColor="@color/hitam"/>
+        </LinearLayout>
+
+
+
+
 
     </ScrollView>
 

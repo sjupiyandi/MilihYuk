@@ -7,202 +7,200 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#eaeaea"
-        android:orientation="vertical"
-        tools:context="com.example.sisco.ayomileh.Fragment.EventFragment">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/header"/>
-
-        <LinearLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="-150dp"
-            android:background="@color/putih"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="horizontal">
-
-             <EditText
-                 android:id="@+id/edt_date"
-                 android:layout_width="0dp"
-                 android:layout_height="50dp"
-                 android:layout_weight="1"
-                 android:background="@android:color/transparent"
-                 android:clickable="true"
-                 android:drawableLeft="@drawable/ic_date"
-                 android:drawablePadding="16dp"
-                 android:editable="false"
-                 android:hint="15/04/2018"
-                 android:padding="8dp"
-                 android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/edt_location"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableLeft="@drawable/ic_location"
-                android:drawablePadding="16dp"
-                android:editable="false"
-                android:hint="TPS 9999"
-                android:padding="8dp"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
-        <LinearLayout
+            android:background="#eaeaea"
             android:orientation="vertical"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="15dp"
-            android:background="@color/putih"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            tools:context="com.example.sisco.ayomileh.Fragment.EventFragment">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ghome"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="-150dp"
+                android:background="@color/putih"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Jumlah Pemilih"
-                        android:textSize="18dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="500"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="-"
-                    android:textSize="50dp" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Belum Memilih"
-                        android:textSize="18dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="500"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Ajak pengguna lain memilih dan kumpulkan poin sebanyaknya."
-                android:gravity="center"
-                android:textSize="17dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <Button
-                android:layout_gravity="center"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:text="MILIH YUK!"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/putih"
-                android:background="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-        </ScrollView>
-        <LinearLayout
-            android:padding="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:drawableLeft="@drawable/ic_date"
-                android:drawablePadding="16dp"
-                android:editable="false"
-                android:hint="Anda belum memberi suara dan mengisi surat suara ke TPS."
-                android:textColorHint="#000"
-                android:paddingBottom="12dp"
-                android:textSize="16sp"/>
-            <RelativeLayout
+                <EditText
+                    android:id="@+id/edt_date"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_date"
+                    android:drawablePadding="16dp"
+                    android:editable="false"
+                    android:hint="15/04/2018"
+                    android:padding="8dp"
+                    android:textSize="16sp"/>
+
+                <EditText
+                    android:id="@+id/edt_location"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_location"
+                    android:drawablePadding="16dp"
+                    android:editable="false"
+                    android:hint="TPS 9999"
+                    android:padding="8dp"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:padding="15dp"
+                android:background="@color/putih"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Jumlah Pemilih"
+                            android:textSize="18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="500"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="-"
+                        android:textSize="50dp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Belum Memilih"
+                            android:textSize="18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="500"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Ajak pengguna lain memilih dan kumpulkan poin sebanyaknya."
+                    android:gravity="center"
+                    android:textSize="17dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
                 <Button
-                    android:layout_alignParentLeft="true"
                     android:layout_gravity="center"
-                    android:padding="8dp"
-                    android:text="Lihat Calon"
-                    android:textSize="15dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:text="MILIH YUK!"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     android:textColor="@color/putih"
                     android:background="@color/colorPrimary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <Button
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:padding="8dp"
-                    android:text="Scan QR Code"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/putih"
-                    android:background="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-        </LinearLayout>
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+            </ScrollView>
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_date"
+                    android:drawablePadding="16dp"
+                    android:editable="false"
+                    android:hint="Anda belum memberi suara dan mengisi surat suara ke TPS."
+                    android:textColorHint="#000"
+                    android:paddingBottom="12dp"
+                    android:textSize="16sp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:text="Lihat Calon"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/putih"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:text="Scan QR Code"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/putih"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
     <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab_blood"-->
-        <!--android:layout_width="75dp"-->
-        <!--android:layout_height="75dp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:src="@drawable/ic_blood_white"/>-->
+    <!--android:id="@+id/fab_blood"-->
+    <!--android:layout_width="75dp"-->
+    <!--android:layout_height="75dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:src="@drawable/ic_blood_white"/>-->
 </RelativeLayout>

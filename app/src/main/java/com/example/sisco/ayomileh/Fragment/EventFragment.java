@@ -49,8 +49,6 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_event, container, false);
 
-        data = EventModel.createEvent();
-
         edtDate = (EditText) view.findViewById(R.id.edt_date);
         edtLocation = (EditText) view.findViewById(R.id.edt_location);
 

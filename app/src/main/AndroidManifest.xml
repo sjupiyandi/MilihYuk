@@ -18,7 +18,7 @@
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.EditProfileActivity" />
-        <activity android:name=".Activity.MainActivity" >
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,14 +47,14 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Activity.Main3Activity">
-
-        </activity>
+        <activity android:name=".Activity.Main3Activity" />
         <activity android:name=".Activity.Register2Activity" />
         <activity android:name=".Activity.DaftarTetapActivity" />
         <activity android:name=".Activity.UserActivity" />
         <activity android:name=".Activity.MengajakActivity" />
-        <activity android:name=".Activity.DiajakActivity"></activity>
+        <activity android:name=".Activity.DiajakActivity" />
+        <activity android:name=".Activity.DaftarCalonActivity" />
+        <activity android:name=".Activity.CalonActivity"></activity>
     </application>
 
 </manifest>
