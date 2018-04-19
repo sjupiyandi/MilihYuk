@@ -33,6 +33,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
     TextView  jenis_kelamin, nama, keluar, ubah, status, tps, jml_mengajak, jml_poin, jml_diajak;
     LinearLayout mengajak, diajak, poin;
 
+
     FirebaseAuth auth;
 
     public ProfilFragment() {
@@ -70,6 +71,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
 
         keluar.setOnClickListener(this);
         ubah.setOnClickListener(this);
+
         mengajak.setOnClickListener(this);
         diajak.setOnClickListener(this);
         poin.setOnClickListener(this);

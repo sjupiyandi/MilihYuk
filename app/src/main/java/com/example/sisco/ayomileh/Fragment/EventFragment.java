@@ -34,11 +34,9 @@ import com.example.sisco.ayomileh.R;
  */
 public class EventFragment extends Fragment implements View.OnClickListener{
 
-    RecyclerView recyclerView;
     private ArrayList<EventModel> data;
     private EventAdapter adapter;
 
-    FloatingActionButton fabBlood;
     EditText edtDate, edtLocation;
     Button milih, calon, qr;
 
@@ -55,15 +53,6 @@ public class EventFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_event, container, false);
-//        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-//        fabBlood = (FloatingActionButton) view.findViewById(R.id.fab_blood);
-//        fabBlood.setOnClickListener(this);
-//
-//        data = EventModel.createEvent();
-//        EventAdapter adapter = new EventAdapter(data);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         edtDate = (EditText) view.findViewById(R.id.edt_date);
         edtLocation = (EditText) view.findViewById(R.id.edt_location);
@@ -109,11 +98,7 @@ public class EventFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-//        if(view == fabBlood){
-//            Intent intent = new Intent(getActivity(), RequestActivity.class);
-//            getContext().startActivity(intent);
-//        } else
-            if (view == edtDate){
+        if (view == edtDate){
             new DatePickerDialog(getActivity(), date, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
