@@ -128,6 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <Button
+                    android:id="@+id/milih"
                     android:layout_gravity="center"
                     android:paddingLeft="50dp"
                     android:paddingRight="50dp"
@@ -169,6 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/calon"
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="center"
                         android:padding="8dp"
@@ -180,6 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <Button
+                        android:id="@+id/qr"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="center"
                         android:padding="8dp"

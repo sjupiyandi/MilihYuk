@@ -21,7 +21,7 @@ public class CalonActivity extends AppCompatActivity {
     Toolbar toolbar;
     TextView nama, nama2, ttl, ttl2, pekerjaan, pekerjaan2, visi, misi, program;
 
-    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://api.pemiluapi.org").addConverterFactory(GsonConverterFactory.create());
+    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://api.pemiluapi.org/").addConverterFactory(GsonConverterFactory.create());
     Retrofit retrofit = builder.build();
     Server userClient = retrofit.create(Server.class);
 
@@ -61,13 +61,13 @@ public class CalonActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CalonModel> call, Response<CalonModel> response) {
                 if (response.isSuccessful()) {
-                    nama.setText(response.body().getNama_kepala_daerah());
-                    nama2.setText(response.body().getNama_wakil_kepala_daerah());
-                    ttl.setText(response.body().getTempat_lahir_kepala_daerah()+", "+response.body().getTanggal_lahir_kepala_daerah());
-                    ttl2.setText(response.body().getTempat_lahir_wakil()+", "+response.body().getTanggal_lahir_wakil());
-                    pekerjaan.setText(response.body().getPekerjaan_kepala_daerah());
-                    pekerjaan2.setText(response.body().getPekerjaan_wakil_kepala_daerah());
-                    visi.setText(response.body().getVisimisi().getVisi());
+//                    nama.setText(response.body().getNama_kepala_daerah());
+//                    nama2.setText(response.body().getNama_wakil_kepala_daerah());
+//                    ttl.setText(response.body().getTempat_lahir_kepala_daerah()+", "+response.body().getTanggal_lahir_kepala_daerah());
+//                    ttl2.setText(response.body().getTempat_lahir_wakil()+", "+response.body().getTanggal_lahir_wakil());
+//                    pekerjaan.setText(response.body().getPekerjaan_kepala_daerah());
+//                    pekerjaan2.setText(response.body().getPekerjaan_wakil_kepala_daerah());
+//                    visi.setText(response.body().getVisimisi().getVisi());
 //                    String stringMisi = "";
 //                    for (CalonModel.VisimisiBean misis : response.body().getVisimisi()) {
 //                        stringGenre += genre.getName()+", ";

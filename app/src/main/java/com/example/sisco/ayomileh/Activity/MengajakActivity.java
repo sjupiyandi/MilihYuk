@@ -39,7 +39,7 @@ public class MengajakActivity extends AppCompatActivity {
 
 
         mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Ajakan").child(mCurrent_user.getUid());
+        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Ajakan").child("mengajak").child(mCurrent_user.getUid());
         mUsersDatabase.keepSynced(true);
 
         mLayoutManager = new LinearLayoutManager(getApplicationContext());

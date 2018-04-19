@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.sisco.ayomileh.Fragment.InfoFragment"
     android:background="#eaeaea">
 
@@ -23,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info"
+                android:text="Informasi Pilkada"
                 android:textSize="18dp"
                 android:textColor="@color/putih"/>
 
@@ -36,31 +37,98 @@
         android:scrollbars="vertical">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_daftarcalon"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/putih"
-                android:layout_marginRight="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Profile Pasangan Calon"
-                android:textColor="@color/hitam"/>
+                android:layout_height="70dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true"
+                android:layout_margin="16dp">
 
-            <Button
-                android:id="@+id/btn_daftartetap"
+                <LinearLayout
+                    android:id="@+id/profile_calon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ava"
+                        android:padding="8dp"
+                        android:layout_gravity="center_vertical"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Profile Pasangan Calon"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/hitam"
+                        />
+
+
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/putih"
-                android:layout_marginRight="16dp"
+                android:layout_height="70dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Daftar Pemilih Tetap"
-                android:textColor="@color/hitam"/>
+                android:layout_marginRight="16dp">
+
+                <LinearLayout
+                    android:id="@+id/tahapan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ava"
+                        android:padding="8dp"
+                        android:layout_gravity="center_vertical"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Tahapan Penyelenggaraan"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/hitam"
+                        />
+
+
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+
+
         </LinearLayout>
 
 

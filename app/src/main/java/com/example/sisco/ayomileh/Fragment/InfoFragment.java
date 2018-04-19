@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.sisco.ayomileh.Activity.DaftarCalonActivity;
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
@@ -16,7 +17,7 @@ import com.example.sisco.ayomileh.R;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
 
-    Button btn_daftarTetap, btn_daftarcalon;
+    LinearLayout profileCalon, tahapan;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -33,11 +34,11 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_info, container, false);
-        btn_daftarTetap = (Button) view.findViewById(R.id.btn_daftartetap);
-        btn_daftarcalon = (Button) view.findViewById(R.id.btn_daftarcalon);
+        profileCalon = (LinearLayout) view.findViewById(R.id.profile_calon);
+        tahapan = (LinearLayout) view.findViewById(R.id.tahapan);
 
-        btn_daftarTetap.setOnClickListener(this);
-        btn_daftarcalon.setOnClickListener(this);
+        profileCalon.setOnClickListener(this);
+        tahapan.setOnClickListener(this);
 
         return view;
     }
@@ -45,12 +46,11 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if (view == btn_daftarTetap){
-            Intent intent = new Intent(getActivity(), DaftarTetapActivity.class);
-            startActivity(intent);
-        }else if (view == btn_daftarcalon){
+        if (view == profileCalon){
             Intent intent = new Intent(getActivity(), DaftarCalonActivity.class);
             startActivity(intent);
+        }else if (view == tahapan){
+
         }
     }
 }

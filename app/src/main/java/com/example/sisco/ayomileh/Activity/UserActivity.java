@@ -114,15 +114,15 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         if (view == btnkirim){
             MengajakModel mengajakModel = new MengajakModel("","","","");
             Map requestMap = new HashMap();
-            requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/nama", nama.getText().toString());
-            requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/alamat", alamat.getText().toString());
-            requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/pesan", pesan.getText().toString());
-            requestMap.put("Ajakan/" + mCurrent_user.getUid() + "/" + user_id + "/type", "mengajak");
+            requestMap.put("Ajakan/mengajak/" + mCurrent_user.getUid() + "/" + user_id + "/nama", nama.getText().toString());
+            requestMap.put("Ajakan/mengajak/" + mCurrent_user.getUid() + "/" + user_id + "/alamat", alamat.getText().toString());
+            requestMap.put("Ajakan/mengajak/" + mCurrent_user.getUid() + "/" + user_id + "/pesan", pesan.getText().toString());
+            requestMap.put("Ajakan/mengajak/" + mCurrent_user.getUid() + "/" + user_id + "/type", "mengajak");
 
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/nama", nama2.toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/alamat",alamat2.toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/pesan", pesan.getText().toString());
-            requestMap.put("Ajakan/" + user_id + "/" + mCurrent_user.getUid() + "/type", "diajak");
+            requestMap.put("Ajakan/diajak/" + user_id + "/" + mCurrent_user.getUid() + "/nama", nama2.toString());
+            requestMap.put("Ajakan/diajak/" + user_id + "/" + mCurrent_user.getUid() + "/alamat",alamat2.toString());
+            requestMap.put("Ajakan/diajak/" + user_id + "/" + mCurrent_user.getUid() + "/pesan", pesan.getText().toString());
+            requestMap.put("Ajakan/diajak/" + user_id + "/" + mCurrent_user.getUid() + "/type", "diajak");
             databases.updateChildren(requestMap, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

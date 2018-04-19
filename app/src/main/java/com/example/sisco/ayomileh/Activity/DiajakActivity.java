@@ -1,5 +1,6 @@
 package com.example.sisco.ayomileh.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,14 +8,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sisco.ayomileh.Model.MengajakModel;
+import com.example.sisco.ayomileh.Model.UserModel;
 import com.example.sisco.ayomileh.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DiajakActivity extends AppCompatActivity {
 
@@ -24,6 +30,8 @@ public class DiajakActivity extends AppCompatActivity {
     private DatabaseReference mUsersDatabase;
     private LinearLayoutManager mLayoutManager;
     public FirebaseUser mCurrent_user;
+    DatabaseReference database;
+    int point;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,7 @@ public class DiajakActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Ajakan").child(mCurrent_user.getUid());
+        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Ajakan").child("diajak").child(mCurrent_user.getUid());
         mUsersDatabase.keepSynced(true);
 
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -68,13 +76,29 @@ public class DiajakActivity extends AppCompatActivity {
 
         ) {
             @Override
-            protected void populateViewHolder(UsersViewHolder usersViewHolder, MengajakModel users, int position) {
+            protected void populateViewHolder(UsersViewHolder usersViewHolder, MengajakModel users, final int position) {
 
                 usersViewHolder.setDisplayName(users.getNama());
                 usersViewHolder.setUserStatus(users.getAlamat());
                 usersViewHolder.setPesanName(users.getPesan());
 
                 final String user_id = getRef(position).getKey();
+
+                usersViewHolder.mView.findViewById(R.id.btn_abaikan).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mUsersDatabase.child(user_id).removeValue();
+                    }
+                });
+                usersViewHolder.mView.findViewById(R.id.btn_terima).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        getDataFromDatabase(user_id);
+                        point = point+1;
+                        database.child("point").setValue(String.valueOf(point));
+                        mUsersDatabase.removeValue();
+                    }
+                });
             }
         };
 
@@ -82,6 +106,25 @@ public class DiajakActivity extends AppCompatActivity {
         mUsersList.setAdapter(firebaseRecyclerAdapter);
 
     }
+
+    private void getDataFromDatabase(String userId){
+        database = FirebaseDatabase.getInstance().getReference("users/" + userId);
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                point = Integer.parseInt(userModel.getPoint().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
 
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder {

@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import com.example.sisco.ayomileh.Activity.DaftarCalonActivity;
+import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
 import com.example.sisco.ayomileh.Activity.RequestActivity;
 import com.example.sisco.ayomileh.Adapter.EventAdapter;
 import com.example.sisco.ayomileh.Model.EventModel;
@@ -37,6 +40,8 @@ public class EventFragment extends Fragment implements View.OnClickListener{
 
     FloatingActionButton fabBlood;
     EditText edtDate, edtLocation;
+    Button milih, calon, qr;
+
 
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
@@ -62,6 +67,9 @@ public class EventFragment extends Fragment implements View.OnClickListener{
 
         edtDate = (EditText) view.findViewById(R.id.edt_date);
         edtLocation = (EditText) view.findViewById(R.id.edt_location);
+        milih = (Button) view.findViewById(R.id.milih);
+        calon = (Button) view.findViewById(R.id.calon);
+        qr = (Button) view.findViewById(R.id.qr);
 
         date = new DatePickerDialog.OnDateSetListener(){
             @Override
@@ -74,6 +82,9 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         };
         edtDate.setOnClickListener(this);
         edtLocation.setOnClickListener(this);
+        milih.setOnClickListener(this);
+        calon.setOnClickListener(this);
+        qr.setOnClickListener(this);
 
         builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Pilih Daerah");
@@ -108,7 +119,15 @@ public class EventFragment extends Fragment implements View.OnClickListener{
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
         } else if (view == edtLocation){
             builder.show();
-        }
+        }else if (view == milih){
+                Intent intent = new Intent(getContext(), DaftarTetapActivity.class);
+                startActivity(intent);
+            }else  if(view == calon){
+                Intent intent = new Intent(getContext(), DaftarCalonActivity.class);
+                startActivity(intent);
+            }else if (view == qr){
+
+            }
     }
 
     private void updateLabel() {
