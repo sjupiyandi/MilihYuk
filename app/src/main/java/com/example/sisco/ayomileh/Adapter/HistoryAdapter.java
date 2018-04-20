@@ -38,9 +38,9 @@ public class HistoryAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch(position){
             case 0 :
-                return "Riwayat";
+                return "Poin";
             case 1 :
-                return "Redeem";
+                return "Kupon";
             default :
                 return null;
         }
