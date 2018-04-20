@@ -11,21 +11,20 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import com.example.sisco.ayomileh.Adapter.RedeemAdapter;
-import com.example.sisco.ayomileh.Model.RedeemModel;
+import com.example.sisco.ayomileh.Adapter.KuponAdapter;
+import com.example.sisco.ayomileh.Model.KuponModel;
 import com.example.sisco.ayomileh.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RedeemFragment extends Fragment {
+public class KuponFragment extends Fragment {
 
     RecyclerView recyclerView;
-    private ArrayList<RedeemModel> data;
-    private RedeemAdapter adapter;
+    private ArrayList<KuponModel> data;
+    private KuponAdapter adapter;
 
-    public RedeemFragment() {    }
-
+    public KuponFragment() {    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,8 +32,8 @@ public class RedeemFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_kupon, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        data = RedeemModel.createRedeem();
-        RedeemAdapter adapter = new RedeemAdapter(data);
+        data = KuponModel.createRedeem();
+        KuponAdapter adapter = new KuponAdapter(data);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

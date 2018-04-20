@@ -4,18 +4,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.sisco.ayomileh.Fragment.HistoryFragment;
-import com.example.sisco.ayomileh.Fragment.RedeemFragment;
+import com.example.sisco.ayomileh.Fragment.PoinFragment;
+import com.example.sisco.ayomileh.Fragment.KuponFragment;
 
 /**
  * Created by Princhaa on /22Oct/17.
  */
 
-public class HistoryAdapter extends FragmentStatePagerAdapter {
+public class PoinAdapter extends FragmentStatePagerAdapter {
 
     int tabCount;
 
-    public HistoryAdapter(FragmentManager fm, int tabCount){
+    public PoinAdapter(FragmentManager fm, int tabCount){
         super(fm);
         this.tabCount = tabCount;
     }
@@ -24,10 +24,10 @@ public class HistoryAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0 :
-                HistoryFragment tab1 = new HistoryFragment();
+                PoinFragment tab1 = new PoinFragment();
                 return tab1;
             case 1 :
-                RedeemFragment tab2 = new RedeemFragment();
+                KuponFragment tab2 = new KuponFragment();
                 return tab2;
             default:
                 return null;

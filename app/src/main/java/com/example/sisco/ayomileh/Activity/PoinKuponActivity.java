@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.sisco.ayomileh.Adapter.HistoryAdapter;
+import com.example.sisco.ayomileh.Adapter.PoinAdapter;
 import com.example.sisco.ayomileh.R;
 
 public class PoinKuponActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
@@ -35,7 +35,7 @@ public class PoinKuponActivity extends AppCompatActivity implements TabLayout.On
         tabLayout.addTab(tabLayout.newTab().setText("Poin"));
         tabLayout.addTab(tabLayout.newTab().setText("Kupon"));
 
-        HistoryAdapter riwayatAdapter = new HistoryAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        PoinAdapter riwayatAdapter = new PoinAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(riwayatAdapter);
         tabLayout.setOnTabSelectedListener(this);

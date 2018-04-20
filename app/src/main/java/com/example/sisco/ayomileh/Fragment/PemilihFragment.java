@@ -1,26 +1,16 @@
 package com.example.sisco.ayomileh.Fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
-import com.example.sisco.ayomileh.Adapter.HistoryAdapter;
 import com.example.sisco.ayomileh.Adapter.PemilihAdapter;
-import com.example.sisco.ayomileh.Model.UserModel;
 import com.example.sisco.ayomileh.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class PemilihFragment extends Fragment implements TabLayout.OnTabSelectedListener{

@@ -19,13 +19,13 @@ import com.example.sisco.ayomileh.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HistoryFragment extends Fragment {
+public class PoinFragment extends Fragment {
 
     RecyclerView recyclerView;
     private ArrayList<EventModel> data;
     private EventAdapter adapter;
 
-    public HistoryFragment() {
+    public PoinFragment() {
         // Required empty public constructor
     }
 
@@ -35,12 +35,6 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_poin, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        data = EventModel.createHistory();
-        DonorAdapter adapter = new DonorAdapter(data);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 
