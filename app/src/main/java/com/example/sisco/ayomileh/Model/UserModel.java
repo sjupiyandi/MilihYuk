@@ -13,11 +13,12 @@ public class UserModel {
     public String alamat;
     public String status;
     public String point;
+    public String jenis_kelamin;
 
     public UserModel() {
     }
 
-    public UserModel(String nama, String no_ktp, String no_kk, String no_tps, String no_hp, String alamat, String status, String point) {
+    public UserModel(String nama, String no_ktp, String no_kk, String no_tps, String no_hp, String alamat, String status, String point, String jenis_kelamin) {
         this.nama = nama;
         this.no_ktp = no_ktp;
         this.no_kk = no_kk;
@@ -26,6 +27,7 @@ public class UserModel {
         this.alamat = alamat;
         this.status = status;
         this.point = point;
+        this.jenis_kelamin = jenis_kelamin;
     }
 
     public String getNama() {
@@ -90,5 +92,13 @@ public class UserModel {
 
     public void setPoint(String point) {
         this.point = point;
+    }
+
+    public String getJenis_kelamin() {
+        return jenis_kelamin;
+    }
+
+    public void setJenis_kelamin(String jenis_kelamin) {
+        this.jenis_kelamin = jenis_kelamin;
     }
 }

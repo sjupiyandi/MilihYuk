@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     Toolbar toolbar;
     EditText edtUsername, edtPassword, edtKonfirmasi;
-    String nama,alamat ,edtNoKtp, edtNoKk, edtNoTps;
+    String nama,alamat ,edtNoKtp, edtNoKk, edtNoTps, jenis_kelamin;
     Button btnDaftar;
     ProgressBar pgbar;
 
@@ -66,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         edtNoKtp = extras.getString("no_ktp");
         edtNoKk = extras.getString("no_kk");
         edtNoTps = extras.getString("no_tps");
+        jenis_kelamin = extras.getString("jenis_kelamin");
     }
 
     @Override
@@ -120,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void writeNewUser(String userId, String email){
-        UserModel users = new UserModel("", "", "", "", "", "", "","");
+        UserModel users = new UserModel("", "", "", "", "", "", "","","");
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/users/" + userId, users);
         database.updateChildren(childUpdates);
@@ -148,5 +149,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         database.child("no_ktp").setValue(edtNoKtp);
         database.child("no_kk").setValue(edtNoKk);
         database.child("no_tps").setValue(edtNoTps);
+        database.child("jenis_kelamin").setValue(jenis_kelamin);
+        database.child("status").setValue("Belum Memilih");
+        database.child("point").setValue("0");
     }
 }

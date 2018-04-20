@@ -43,9 +43,12 @@ public class DaftarCalonActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == calon1){
             Intent intent = new Intent(DaftarCalonActivity.this, CalonActivity.class);
+            intent.putExtra("no_urut", "0");
             startActivity(intent);
         }else if(view == calon2){
-
+            Intent intent = new Intent(DaftarCalonActivity.this, CalonActivity.class);
+            intent.putExtra("no_urut", "1");
+            startActivity(intent);
         }
     }
 }
