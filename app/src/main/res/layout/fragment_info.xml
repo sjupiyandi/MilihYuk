@@ -44,12 +44,14 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:adjustViewBounds="true"
                 android:padding="8dp"
                 card_view:cardElevation="4dp"
                 card_view:cardUseCompatPadding="true"
-                android:layout_margin="16dp">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp">
 
                 <LinearLayout
                     android:id="@+id/profile_calon"
@@ -59,24 +61,24 @@
                     >
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ava"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="16dp"
+                        android:src="@drawable/ic_people_outline"
                         android:padding="8dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginRight="8dp"
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
+
                         android:text="Profile Pasangan Calon"
                         android:textSize="18sp"
                         android:layout_gravity="center"
                         android:textColor="@color/hitam"
                         />
-
-
 
                 </LinearLayout>
 
@@ -86,7 +88,7 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:adjustViewBounds="true"
                 android:padding="8dp"
                 card_view:cardElevation="4dp"
@@ -102,17 +104,17 @@
                     >
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/ava"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_show_chart"
                         android:padding="8dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="8dp"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="5"
                         android:text="Tahapan Penyelenggaraan"
                         android:textSize="18sp"
                         android:layout_gravity="center"
@@ -127,14 +129,46 @@
 
             </android.support.v7.widget.CardView>
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                >
 
+                <LinearLayout
+                    android:id="@+id/profile_infohoax"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ava"
+                        android:padding="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="8dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Info Hoax"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/hitam"
+                        />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
-
-
-
-
-
     </ScrollView>
 
 </LinearLayout>

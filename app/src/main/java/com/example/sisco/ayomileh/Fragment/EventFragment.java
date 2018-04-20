@@ -25,6 +25,7 @@ import java.util.Locale;
 import com.example.sisco.ayomileh.Activity.DaftarCalonActivity;
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
 import com.example.sisco.ayomileh.Activity.RequestActivity;
+import com.example.sisco.ayomileh.Activity.ScanActivity;
 import com.example.sisco.ayomileh.Adapter.EventAdapter;
 import com.example.sisco.ayomileh.Model.EventModel;
 import com.example.sisco.ayomileh.R;
@@ -111,7 +112,8 @@ public class EventFragment extends Fragment implements View.OnClickListener{
                 Intent intent = new Intent(getContext(), DaftarCalonActivity.class);
                 startActivity(intent);
             }else if (view == qr){
-
+                Intent intent = new Intent(getContext(), ScanActivity.class);
+                startActivity(intent);
             }
     }
 

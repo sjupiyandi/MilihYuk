@@ -81,7 +81,7 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
 
                 int i;
                 for ( i=0 ; i <= 20; i++) {
-                    database = FirebaseDatabase.getInstance().getReference("tps/1/" + i);
+                    database = FirebaseDatabase.getInstance().getReference("tps/1/DaftarPemilih/" + i);
                     database.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -90,6 +90,7 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
                                 Intent intent = new Intent(Register2Activity.this, RegisterActivity.class);
                                 intent.putExtra("nama", dataSnapshot.child("Nama").getValue().toString());
                                 intent.putExtra("alamat", dataSnapshot.child("Alamat").getValue().toString());
+                                intent.putExtra("jenis_kelamin", dataSnapshot.child("JK").getValue().toString());
                                 intent.putExtra("no_ktp", email);
                                 intent.putExtra("no_kk", password);
                                 intent.putExtra("no_tps", konfirmasi);

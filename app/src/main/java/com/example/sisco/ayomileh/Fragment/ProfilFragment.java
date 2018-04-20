@@ -20,21 +20,29 @@ import com.example.sisco.ayomileh.Activity.DiajakActivity;
 import com.example.sisco.ayomileh.Activity.EditProfileActivity;
 import com.example.sisco.ayomileh.Activity.Main3Activity;
 import com.example.sisco.ayomileh.Activity.MengajakActivity;
+import com.example.sisco.ayomileh.Model.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.example.sisco.ayomileh.Activity.AboutActivity;
 import com.example.sisco.ayomileh.Activity.HistoryActivity;
 import com.example.sisco.ayomileh.Activity.LoginActivity;
 import com.example.sisco.ayomileh.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ProfilFragment extends Fragment implements View.OnClickListener{
 
-    TextView  jenis_kelamin, nama, keluar, ubah, status, tps, jml_mengajak, jml_poin, jml_diajak;
+    TextView  jenis_kelamin, nama,alamat, keluar, ubah, status, tps, jml_mengajak, jml_poin, jml_diajak;
     LinearLayout mengajak, diajak, poin;
-
+    String jk;
+    String cMengajak, cDiajak;
 
     FirebaseAuth auth;
+    DatabaseReference database, dMengajak, dDiajak;
 
     public ProfilFragment() {
         // Required empty public constructor
@@ -46,8 +54,6 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        auth = FirebaseAuth.getInstance();
-
     }
 
     @Override
@@ -58,6 +64,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
 
         jenis_kelamin = (TextView) view.findViewById(R.id.jenis_kelamin);
         nama = (TextView) view.findViewById(R.id.nama);
+        alamat = (TextView) view.findViewById(R.id.alamat);
         keluar = (TextView) view.findViewById(R.id.txt_keluar);
         ubah = (TextView) view.findViewById(R.id.txt_ubah);
         status = (TextView) view.findViewById(R.id.status);
@@ -76,7 +83,17 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         diajak.setOnClickListener(this);
         poin.setOnClickListener(this);
 
+        auth = FirebaseAuth.getInstance();
+        getDataFromDatabase(auth.getCurrentUser().getUid());
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDataFromDatabase(auth.getCurrentUser().getUid());
+
     }
 
     @Override
@@ -101,26 +118,58 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.profile_menu, menu);
-        return;
+    private void getDataFromDatabase(final String userId){
+        database = FirebaseDatabase.getInstance().getReference("users/" + userId);
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                jk = userModel.getJenis_kelamin();
+                if (jk.equals("L")){
+                    jk = "Tn.";
+                }else {
+                    jk = "Ny.";
+                }
+
+                jenis_kelamin.setText(jk);
+                nama.setText(userModel.getNama());
+                alamat.setText(userModel.getAlamat());
+                status.setText(userModel.getStatus());
+                tps.setText(userModel.getNo_tps());
+                jml_poin.setText(userModel.getPoint());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        dMengajak = FirebaseDatabase.getInstance().getReference("Ajakan/mengajak/" + userId);
+        dMengajak.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                cMengajak = String.valueOf(dataSnapshot.getChildrenCount());
+                jml_mengajak.setText(cMengajak);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        dDiajak = FirebaseDatabase.getInstance().getReference("Ajakan/diajak/" + userId);
+        dDiajak.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                cDiajak = String.valueOf(dataSnapshot.getChildrenCount());
+                jml_diajak.setText(cDiajak);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent i;
-        switch (item.getItemId()) {
-            case R.id.history_menu:
-                i = new Intent(getActivity(), HistoryActivity.class);
-                startActivity(i);
-                return true;
-
-            case R.id.about_menu:
-                i = new Intent(getActivity(), AboutActivity.class);
-                startActivity(i);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
