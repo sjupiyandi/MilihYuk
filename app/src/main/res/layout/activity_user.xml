@@ -83,6 +83,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Alamat"
                 android:textColor="#000" />
+
         </LinearLayout>
 
 

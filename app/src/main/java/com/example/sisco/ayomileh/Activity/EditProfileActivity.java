@@ -92,9 +92,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
 
     private void updateData(){
-        database.child("nama").setValue(edtNama.getText().toString());
         database.child("no_hp").setValue(edtNohp.getText().toString());
-        database.child("alamat").setValue(edtAlamat.getText().toString());
 
     }
 }

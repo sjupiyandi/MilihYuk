@@ -101,7 +101,6 @@ public class BelumFragment extends Fragment {
                             Intent intent = new Intent(getContext(), UserActivity.class);
                             intent.putExtra("user_id", user_id);
                             startActivity(intent);
-                            getActivity().finish();
                         }
                     }
                 });

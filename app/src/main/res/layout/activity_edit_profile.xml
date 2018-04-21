@@ -65,7 +65,22 @@
         android:hint="Nama Lengkap"
         android:textColor="#000"
         android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/ic_person"/>
+        android:drawableLeft="@drawable/ic_person"
+        android:enabled="false"/>
+
+
+    <EditText
+        android:id="@+id/edt_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/ic_location2"
+        android:drawablePadding="8dp"
+        android:hint="Alamat"
+        android:textColor="#000"
+        android:enabled="false" />
 
     <EditText
         android:id="@+id/edt_no_hp"
@@ -79,17 +94,7 @@
         android:drawablePadding="8dp"
         android:drawableLeft="@drawable/ic_phone"/>
 
-    <EditText
-        android:id="@+id/edt_alamat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:drawableLeft="@drawable/ic_location"
-        android:drawablePadding="8dp"
-        android:hint="Alamat"
-        android:textColor="#000" />
+
 
 
     <Button

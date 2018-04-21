@@ -94,8 +94,6 @@ public class DiajakActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         getDataFromDatabase(user_id);
-                        point = point+1;
-                        database.child("point").setValue(String.valueOf(point));
                         mUsersDatabase.removeValue();
                     }
                 });
@@ -112,8 +110,10 @@ public class DiajakActivity extends AppCompatActivity {
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                UserModel userModel = dataSnapshot.getValue(UserModel.class);
-                point = Integer.parseInt(userModel.getPoint().toString());
+
+                point = Integer.parseInt(dataSnapshot.child("point").getValue().toString());
+                point++;
+                database.child("point").setValue(String.valueOf(point));
             }
 
             @Override

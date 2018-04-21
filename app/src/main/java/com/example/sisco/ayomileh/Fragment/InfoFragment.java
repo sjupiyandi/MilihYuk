@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.example.sisco.ayomileh.Activity.DaftarCalonActivity;
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
+import com.example.sisco.ayomileh.Activity.TahapActivity;
 import com.example.sisco.ayomileh.R;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
@@ -50,7 +51,8 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
             Intent intent = new Intent(getActivity(), DaftarCalonActivity.class);
             startActivity(intent);
         }else if (view == tahapan){
-
+            Intent intent = new Intent(getActivity(), TahapActivity.class);
+            startActivity(intent);
         }
     }
 }

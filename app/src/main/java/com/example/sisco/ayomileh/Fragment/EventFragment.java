@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,6 +30,13 @@ import com.example.sisco.ayomileh.Activity.ScanActivity;
 import com.example.sisco.ayomileh.Adapter.EventAdapter;
 import com.example.sisco.ayomileh.Model.EventModel;
 import com.example.sisco.ayomileh.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,13 +47,17 @@ public class EventFragment extends Fragment implements View.OnClickListener{
     private EventAdapter adapter;
 
     EditText edtDate, edtLocation;
+    TextView jml_pemilih, jml_belum;
     Button milih, calon, qr;
 
 
     Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener date;
-    CharSequence locations[] = new CharSequence[] {"Kota Batu", "Kota Malang", "Kabupaten Malang"};
     AlertDialog.Builder builder;
+
+    FirebaseAuth auth;
+    Query database;
+    DatabaseReference databases;
 
     public EventFragment() {}
 
@@ -55,45 +67,25 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_event, container, false);
 
+
+        jml_pemilih = (TextView) view.findViewById(R.id.jml_pemilih);
+        jml_belum = (TextView) view.findViewById(R.id.jml_belum);
         edtDate = (EditText) view.findViewById(R.id.edt_date);
         edtLocation = (EditText) view.findViewById(R.id.edt_location);
         milih = (Button) view.findViewById(R.id.milih);
         calon = (Button) view.findViewById(R.id.calon);
         qr = (Button) view.findViewById(R.id.qr);
 
-        date = new DatePickerDialog.OnDateSetListener(){
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel();
-            }
-        };
+
         edtDate.setOnClickListener(this);
         edtLocation.setOnClickListener(this);
         milih.setOnClickListener(this);
         calon.setOnClickListener(this);
         qr.setOnClickListener(this);
 
-        builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Pilih Daerah");
-        builder.setItems(locations, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch(which){
-                    case 0:
-                        edtLocation.setText("Kota Batu");
-                        break;
-                    case 1:
-                        edtLocation.setText("Kota Malang");
-                        break;
-                    case 2:
-                        edtLocation.setText("Kab. Malang");
-                        break;
-                }
-            }
-        });
+        auth = FirebaseAuth.getInstance();
+        getDataFromDatabase();
+
         return view;
     }
 
@@ -117,10 +109,37 @@ public class EventFragment extends Fragment implements View.OnClickListener{
             }
     }
 
-    private void updateLabel() {
-        String myFormat = "MM/dd/yyyy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-        edtDate.setText(sdf.format(myCalendar.getTime()));
+    private void getDataFromDatabase(){
+
+        database = FirebaseDatabase.getInstance().getReference("users").orderByChild("status").equalTo("Belum Memilih");
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                jml_belum.setText(String.valueOf(dataSnapshot.getChildrenCount()));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        databases = FirebaseDatabase.getInstance().getReference("users");
+        databases.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                jml_pemilih.setText(String.valueOf(dataSnapshot.getChildrenCount()));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }

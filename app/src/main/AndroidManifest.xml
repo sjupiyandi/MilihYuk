@@ -55,7 +55,8 @@
         <activity android:name=".Activity.DiajakActivity" />
         <activity android:name=".Activity.DaftarCalonActivity" />
         <activity android:name=".Activity.CalonActivity" />
-        <activity android:name=".Activity.ScanActivity"></activity>
+        <activity android:name=".Activity.ScanActivity" />
+        <activity android:name=".Activity.TahapActivity"></activity>
     </application>
 
 </manifest>
