@@ -11,9 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.sisco.ayomileh.Activity.DiajakActivity;
@@ -24,8 +22,7 @@ import com.example.sisco.ayomileh.Model.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.example.sisco.ayomileh.Activity.AboutActivity;
-import com.example.sisco.ayomileh.Activity.HistoryActivity;
-import com.example.sisco.ayomileh.Activity.LoginActivity;
+import com.example.sisco.ayomileh.Activity.PoinKuponActivity;
 import com.example.sisco.ayomileh.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -114,7 +111,7 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
             getActivity().startActivity(intent);
 
         }else if(view == poin){
-
+            getActivity().startActivity(new Intent(getActivity(),PoinKuponActivity.class));
         }
     }
 
@@ -171,5 +168,4 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
             }
         });
     }
-
 }

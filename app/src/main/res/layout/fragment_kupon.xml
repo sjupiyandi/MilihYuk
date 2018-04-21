@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#c2c2c2"
-    tools:context="com.example.sisco.ayomileh.Fragment.RedeemFragment">
+    tools:context="com.example.sisco.ayomileh.Fragment.KuponFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

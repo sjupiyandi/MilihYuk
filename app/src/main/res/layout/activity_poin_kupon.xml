@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#eaeaea"
-    tools:context="com.example.sisco.ayomileh.Activity.HistoryActivity">
+    tools:context="com.example.sisco.ayomileh.Activity.PoinKuponActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Riwayat"
+                android:text="Poin dan Kupon"
                 android:textColor="#FFF" />
 
         </RelativeLayout>

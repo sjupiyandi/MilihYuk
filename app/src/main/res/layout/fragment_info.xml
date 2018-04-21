@@ -37,10 +37,10 @@
         android:scrollbars="vertical">
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="5">
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -51,7 +51,8 @@
                 card_view:cardUseCompatPadding="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/profile_calon"
@@ -94,7 +95,8 @@
                 card_view:cardElevation="4dp"
                 card_view:cardUseCompatPadding="true"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="16dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/tahapan"
@@ -138,10 +140,11 @@
                 card_view:cardUseCompatPadding="true"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_weight="1"
                 >
 
                 <LinearLayout
-                    android:id="@+id/profile_infohoax"
+                    android:id="@+id/pelanggaran_pilkada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -150,7 +153,7 @@
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/ava"
+                        android:src="@drawable/ic_block"
                         android:padding="8dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="16dp"
@@ -159,7 +162,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Info Hoax"
+                        android:text="Pelanggaran Pilkada"
                         android:textSize="18sp"
                         android:layout_gravity="center"
                         android:textColor="@color/hitam"
@@ -167,6 +170,82 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:id="@+id/lapor_pelanggaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_sad"
+                        android:padding="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="8dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lapor Pelanggaran"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/putih"
+                        />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="64dp"
+                app:cardBackgroundColor="@color/putih"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:id="@+id/tentang"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tentang Pengembang MilihYuk!"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/hitam"
+                        />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
 
         </LinearLayout>
     </ScrollView>

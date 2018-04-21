@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,10 +29,10 @@ import java.util.Map;
 public class UserActivity extends AppCompatActivity implements View.OnClickListener{
 
     Toolbar toolbar;
-    String nama2, status2, alamat2;
-    TextView nama, status, alamat;
+    String nama2, alamat2;
+    TextView nama, alamat;
     EditText pesan;
-    Button btnkirim;
+    ImageView btnkirim;
 
     FirebaseAuth auth;
     DatabaseReference database,database2,databases;
@@ -49,11 +50,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        nama = (TextView) findViewById(R.id.edt_nama);
-        status = (TextView) findViewById(R.id.edt_no_hp);
-        alamat = (TextView) findViewById(R.id.edt_alamat);
+        nama = (TextView) findViewById(R.id.nama);
+        alamat = (TextView) findViewById(R.id.alamat);
         pesan = (EditText) findViewById(R.id.edt_pesan);
-        btnkirim = (Button) findViewById(R.id.btn_send1);
+        btnkirim = (ImageView) findViewById(R.id.btn_send1);
         btnkirim.setOnClickListener(this);
 
         Bundle extras = getIntent().getExtras();
@@ -73,7 +73,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserModel userModel = dataSnapshot.getValue(UserModel.class);
                 nama.setText(userModel.getNama());
-                status.setText(userModel.getStatus());
                 alamat.setText(userModel.getAlamat());
             }
 
@@ -91,7 +90,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserModel userModel = dataSnapshot.getValue(UserModel.class);
                 nama2 = userModel.getNama();
-                status2= (userModel.getStatus());
                 alamat2= (userModel.getAlamat());
             }
 

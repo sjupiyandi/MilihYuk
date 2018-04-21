@@ -27,7 +27,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Profil"
+                    android:text="Tulis Pesan"
+                    android:textSize="18dp"
                     android:textColor="#FFFF" />
 
             </RelativeLayout>
@@ -40,57 +41,55 @@
             android:layout_weight="0.25">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ayo tuliskan pesan ajakan yang menarik supaya orang lain memilih."
+                android:textSize="20dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginLeft="32dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/pesawat"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dp"/>
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ava"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="32dp"/>
+                android:layout_marginTop="-80dp"
+                android:layout_marginBottom="16dp"/>
 
             <TextView
-                android:id="@+id/edt_nama"
+                android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:hint="Nama Lengkap"
-                android:textColor="#000"
-                android:drawablePadding="8dp"
-                android:drawableLeft="@drawable/ic_person"/>
+                android:textSize="18dp"
+                android:textColor="@color/hitam"
+                android:gravity="center"
+                />
 
             <TextView
-                android:id="@+id/edt_no_hp"
+                android:id="@+id/alamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="No. Hp"
-                android:textColor="#000"
-                android:drawablePadding="8dp"
-                android:drawableLeft="@drawable/ic_phone"/>
-
-            <TextView
-                android:id="@+id/edt_alamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:drawableLeft="@drawable/ic_location"
-                android:drawablePadding="8dp"
+                android:layout_marginTop="8dp"
                 android:hint="Alamat"
-                android:textColor="#000" />
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textColor="@color/hitam" />
 
         </LinearLayout>
 
-
-
-
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -101,23 +100,22 @@
                 android:id="@+id/edt_pesan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan Pesan"
+                android:hint="Pesan ajakan singkat"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_gravity="center"
                 />
 
-            <Button
-                android:layout_weight="2"
+
+
+            <ImageView
                 android:id="@+id/btn_send1"
+                android:layout_weight="3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:layout_gravity="center"
-                android:background="@color/colorPrimary"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Kirim"
-                android:textColor="#FFF"/>
+                android:src="@drawable/ic_send"/>
 
         </LinearLayout>
 

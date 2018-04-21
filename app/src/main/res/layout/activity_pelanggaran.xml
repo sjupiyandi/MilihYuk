@@ -1,0 +1,177 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    android:orientation="vertical"
+    tools:context="com.example.sisco.ayomileh.Activity.PelanggaranActivity">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:baselineAligned="false"
+        android:elevation="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/atas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pelanggaran Pilkada"
+                android:textColor="@color/putih"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="Politik Uang"
+                        android:textColor="@color/putih"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/visi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Politik uang menurut KBBI adalah suap (tindakan penyuapan). Dalam hal Pemilu, politik uang berarti tindakan penyuapan yang dilakukan oknum tertentu agar mereka yang disuap memilih calon kepala daerah tertentu. Penyuapan berupa uang dan juga barang yang bernilai ekonomis. \n\nContoh politik uang adalah\n
+•	Anda atau kerabat diiming-imingi uang atau barang tertentu untuk memilih seorang calon\n
+•	Anda menerima “serangan fajar”\n\n
+Politik uang harus dihindari karena pelakunya, baik pemberi maupun pelaku, bisa dipidana berdasarkan Undang-undang Nomor 10 Tahun 2016.
+"
+                        android:textColor="@color/hitam"
+                        />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="Politik Identitas"
+                        android:textColor="@color/putih"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/misi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Politik identitas, menurut Abdillah (2002), merupakan politik yang fokus utama kajian dan permasalahannya menyangkut perbedaan-perbedaan yang didasarkan atas asumsi-asumsi fisik tubuh, politik etnisitas atau primordialisme, dan pertentangan agama, kepercayaan, atau bahasa. Sederhananya, bila politik uang menghasut atau memaksa orang untuk memilih calon tertentu dengan iming-iming uang, politik identitas menghasut atau memaksa orang untuk memilih dengan alasan-alasan persamaan: persamaan suku, etnisitas, kepercayaan, dan sebagainya. \n\nContoh politik identitas adalah\n
+•	Ada orang yang memaksa Anda atau kerabat memilih calon tertentu karena calon sesuku, sekeyakinan, seras, sepemikiran, atau sebagainya dengan Anda\n
+•	Ada orang yang menjelek-jelekkan calon lain karena identitas calon tersebut\n
+•	Ada kampanye calon tertentu yang membawa tema SARA dan menyinggung-nyinggung calon lain melalui SARA\n
+"
+                        android:textColor="@color/hitam"
+                        />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/cv_event3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:padding="8dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="Penyebaran Hoax"
+                        android:textColor="@color/putih"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/program"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Penebaran hoax berarti juga menyebarkan kabar-kabar palsu atau bohong terkait calon tertentu. Hal ini biasanya dilakukan untuk mencegah seseorang memilih calon tertentu. Hoax yang beredar biasanya berasal dari media sosial seperti Facebook dan Twitter atau aplikasi pesan instan seperti WhatsApp. \n\nSebuah hoax biasanya memiliki ciri-ciri\n
+•	Berisi kalimat-kalimat dan opini yang menyerang pribadi calon\n
+•	Seakan-akan menimbulkan dampak yang nyata, tetapi tidak dibicarakan dalam media massa\n
+•	Berisi informasi yang keliru atau tidak dapat dipertanggungjawabkan\n\n
+Oleh karena itu, ketika pertama kali menerima kabar apapun tentang calon tertentu, entah kabar baik atau buruk, kita tidak boleh langsung percaya karena bisa jadi kabar itu tidak benar. Pelaku penyebar hoax terancam untuk membayar denda Rp 1 milyar berdasarkan Pasal 28 ayat 1 Undang-Undang Informasi dan Transaksi Elektronik atau Undang-Undang ITE.\n
+"
+                        android:textColor="@color/hitam"
+                        />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

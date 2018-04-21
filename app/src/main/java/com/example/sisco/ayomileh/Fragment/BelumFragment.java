@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
+import com.example.sisco.ayomileh.Activity.PenggunaActivity;
 import com.example.sisco.ayomileh.Activity.UserActivity;
 import com.example.sisco.ayomileh.Model.UserModel;
 import com.example.sisco.ayomileh.R;
@@ -88,8 +89,20 @@ public class BelumFragment extends Fragment {
 
                 usersViewHolder.setDisplayName(users.getNama());
                 usersViewHolder.setUserStatus(users.getAlamat());
+                usersViewHolder.setJenisStatus(users.getJenis_kelamin());
 
                 final String user_id = getRef(position).getKey();
+
+                usersViewHolder.mView.findViewById(R.id.belum).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                            Intent intent = new Intent(getContext(), PenggunaActivity.class);
+                            intent.putExtra("user_id", user_id);
+                            startActivity(intent);
+
+                    }
+                });
 
                 usersViewHolder.mView.findViewById(R.id.btn_ajak).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -136,6 +149,20 @@ public class BelumFragment extends Fragment {
 
             TextView userStatusView = (TextView) mView.findViewById(R.id.txt_address);
             userStatusView.setText(status);
+
+        }
+        public void setJenisStatus(String status){
+
+            TextView userStatusView = (TextView) mView.findViewById(R.id.txt_jeniskelamin);
+            String jenis= "";
+            if (status.equals("L")){
+                jenis = "Tn. ";
+                userStatusView.setText(jenis);
+            }else {
+                jenis = "Ny. ";
+                userStatusView.setText(jenis);
+            }
+
 
         }
 

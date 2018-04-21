@@ -1,0 +1,183 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/putih"
+    tools:context="com.example.sisco.ayomileh.Fragment.PoinFragment">
+    <RelativeLayout
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/keteranganDiskon"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="2"
+                    android:textSize="70sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp" />
+                <TextView
+                    android:text="Poin"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/poin"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <TextView
+                android:text="="
+                android:gravity="center_vertical"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:text="2"
+                        android:textSize="70sp"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp" />
+                    <TextView
+                        android:text="%"
+                        android:textSize="30sp"
+                        android:textColor="#000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:text="Diskon Infomaret"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@drawable/logo_infomaret"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/keteranganDiskon"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="#cfcfcf"
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Syarat dan Ketentuan"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:textSize="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <GridLayout
+                        android:columnCount="2"
+                        android:rowCount="4"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="1. "
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginRight="15dp"
+                            android:text="Poin hanya bisa ditukarkan jika anda sudah berstatus memilih (lihat status anda di halaman profil)"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="2. "
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginRight="15dp"
+                            android:text="Poin hanya bisa ditukarkan di TPS."
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="3. "
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginRight="15dp"
+                            android:text="Poin akan ditukar dengan diskon total pembelian di seluruh toko indomaret."
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="4. "
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginRight="15dp"
+                            android:text="Cara menukar poin adalah menekan tombol 'Tukar Poin' di bawah, kemudian scan barcode di TPS. Setelah berhasil anda akan mendapat format kupon. Untuk menggunakannya tunjukkan kupon tersebut pada pramuniaga."
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </GridLayout>
+                </LinearLayout>
+            <Button
+                android:id="@+id/btnTukarPoin"
+                android:text="Tukar Poin"
+                android:textColor="@color/putih"
+                android:textStyle="bold"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

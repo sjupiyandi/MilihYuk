@@ -6,10 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.sisco.ayomileh.Adapter.HistoryAdapter;
+import com.example.sisco.ayomileh.Adapter.PoinAdapter;
 import com.example.sisco.ayomileh.R;
 
-public class HistoryActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
+public class PoinKuponActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -18,7 +18,7 @@ public class HistoryActivity extends AppCompatActivity implements TabLayout.OnTa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_poin_kupon);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -27,12 +27,15 @@ public class HistoryActivity extends AppCompatActivity implements TabLayout.OnTa
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+//
+//        Riwayat -> Poin
+//        Redeem -> Kupon
+//
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayout.addTab(tabLayout.newTab().setText("Riwayat"));
-        tabLayout.addTab(tabLayout.newTab().setText("Redeem"));
+        tabLayout.addTab(tabLayout.newTab().setText("Poin"));
+        tabLayout.addTab(tabLayout.newTab().setText("Kupon"));
 
-        HistoryAdapter riwayatAdapter = new HistoryAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        PoinAdapter riwayatAdapter = new PoinAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(riwayatAdapter);
         tabLayout.setOnTabSelectedListener(this);
