@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import com.example.sisco.ayomileh.Activity.DetailKuponActivity;
+import com.example.sisco.ayomileh.Activity.PoinKuponActivity;
 import com.example.sisco.ayomileh.Model.KuponModel;
 import com.example.sisco.ayomileh.R;
 
@@ -49,17 +50,9 @@ public class KuponAdapter extends RecyclerView.Adapter<KuponAdapter.ViewHolder> 
                 intent.putExtra("diskonKupon",kuponModels.get(i).getNilaiKupon());
                 intent.putExtra("idKupon",kuponModels.get(i).getIdKupon());
                 context.startActivity(intent);
+                ((PoinKuponActivity)context).finish();
             }
         });
-//        viewHolder.cvRedeem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, DetailActivity.class);
-//                intent.putExtra("id", eventModels.get(i).getId());
-//                context.startActivity(intent);
-//                ((Activity) context).finish();
-//            }
-//        });
     }
 
     @Override

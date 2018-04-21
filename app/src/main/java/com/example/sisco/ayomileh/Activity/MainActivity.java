@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         binding();
 
         setupViewPager(viewPager);
+//        Bundle extras = getIntent().getExtras();
+//        if(extras != null){
+//            int pos = extras.getInt("message");
+//            viewPager.setCurrentItem(pos);
+//        }
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -63,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.action_profile:
                                 viewPager.setCurrentItem(2);
                                 break;
-
-
                         }
                         return true;
                     }
