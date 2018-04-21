@@ -32,10 +32,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 EventFragment tab1 = new EventFragment();
                 return tab1;
             case 1:
-                InfoFragment tab2 = new InfoFragment();
+                ProfilFragment tab2 = new ProfilFragment();
                 return tab2;
             case 2:
-                ProfilFragment tab3 = new ProfilFragment();
+                InfoFragment tab3 = new InfoFragment();
                 return tab3;
 
 

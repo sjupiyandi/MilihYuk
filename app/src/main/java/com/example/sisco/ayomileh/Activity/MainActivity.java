@@ -62,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.action_event:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.action_info:
+                            case R.id.action_profile:
                                 viewPager.setCurrentItem(1);
                                 break;
-                            case R.id.action_profile:
+                            case R.id.action_info:
                                 viewPager.setCurrentItem(2);
                                 break;
+
                         }
                         return true;
                     }
