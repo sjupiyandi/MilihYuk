@@ -46,7 +46,9 @@ public class KuponAdapter extends RecyclerView.Adapter<KuponAdapter.ViewHolder> 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailKuponActivity.class);
-
+                intent.putExtra("diskonKupon",kuponModels.get(i).getNilaiKupon());
+                intent.putExtra("idKupon",kuponModels.get(i).getIdKupon());
+                context.startActivity(intent);
             }
         });
 //        viewHolder.cvRedeem.setOnClickListener(new View.OnClickListener() {
