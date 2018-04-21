@@ -6,14 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sisco.ayomileh.Activity.DiajakActivity;
 import com.example.sisco.ayomileh.Activity.EditProfileActivity;
@@ -22,7 +18,6 @@ import com.example.sisco.ayomileh.Activity.MengajakActivity;
 import com.example.sisco.ayomileh.Model.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.example.sisco.ayomileh.Activity.AboutActivity;
 import com.example.sisco.ayomileh.Activity.PoinKuponActivity;
 import com.example.sisco.ayomileh.R;
 import com.google.firebase.database.DataSnapshot;

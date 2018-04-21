@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Poin dan Kupon"
+                android:textSize="18sp"
                 android:textColor="#FFF" />
 
         </RelativeLayout>

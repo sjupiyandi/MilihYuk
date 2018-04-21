@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Poin dan Kupon"
+                android:textSize="18sp"
                 android:textColor="#FFF" />
 
         </RelativeLayout>
@@ -44,7 +45,7 @@
             <TextView
                 android:layout_marginTop="25dp"
                 android:gravity="center_horizontal"
-                android:text="Diskon 12% dari total belanja."
+                android:text="Diskon 20% dari total belanja."
                 android:textSize="22sp"
                 android:textColor="#000"
                 android:layout_width="match_parent"
@@ -90,8 +91,8 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/logo"
-                    android:layout_marginRight="15dp"
+                    android:src="@drawable/logored"
+                    android:layout_marginRight="16dp"
                     android:scaleType="fitXY"
                     android:layout_width="100dp"
                     android:layout_height="100dp" />

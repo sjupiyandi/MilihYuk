@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
             getDataFromDatabase();
         }
 
-        mContext = MainActivity.this;
-        if(getIntent().getStringExtra("click_action") != null){
-            if (getIntent().getStringExtra("click_action").equals("URGENT_ACTION")){
-                Intent intent = new Intent(this, UrgentActivity.class);
-                startActivity(intent);
-            }
-        }
+//        mContext = MainActivity.this;
+//        if(getIntent().getStringExtra("click_action") != null){
+//            if (getIntent().getStringExtra("click_action").equals("URGENT_ACTION")){
+//                Intent intent = new Intent(this, UrgentActivity.class);
+//                startActivity(intent);
+//            }
+//        }
     }
 
     private void getDataFromDatabase(){

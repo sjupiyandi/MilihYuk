@@ -106,6 +106,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    public void onBackPressed() {
+        Intent intentBack = new Intent(this,DaftarTetapActivity.class);
+        startActivity(intentBack);
+        finish();
+    }
+
 
     @Override
     public void onClick(View view) {

@@ -69,15 +69,20 @@ public class ScanActivity extends AppCompatActivity implements View.OnClickListe
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null) {
             String re = scanResult.getContents();
-            if (status.equals("Belum Memilih")){
-                if (re.equals("Version 2")){
-                    getDataFromDatabases(auth.getCurrentUser().getUid());
-                    Toast.makeText(this,"Scan Berhasil",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(this,"QR Code Salah",Toast.LENGTH_SHORT).show();
+            try {
+                if (status.equals("Belum Memilih")) {
+                    if (re.equals("Version 2")) {
+                        getDataFromDatabases(auth.getCurrentUser().getUid());
+                        Toast.makeText(this, "Scan Berhasil", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "QR Code Salah", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Anda telah melakukan scan", Toast.LENGTH_SHORT).show();
                 }
-            }else {
-                Toast.makeText(this,"Anda telah melakukan scan",Toast.LENGTH_SHORT).show();
+            }
+            catch (Exception e){
+                onBackPressed();
             }
 
         }

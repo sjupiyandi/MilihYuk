@@ -1,23 +1,17 @@
 package com.example.sisco.ayomileh.Fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import com.example.sisco.ayomileh.Activity.ScanActivity;
-import com.example.sisco.ayomileh.Adapter.DonorAdapter;
-import com.example.sisco.ayomileh.Adapter.EventAdapter;
-import com.example.sisco.ayomileh.Model.EventModel;
 import com.example.sisco.ayomileh.R;
 
 /**
@@ -26,8 +20,6 @@ import com.example.sisco.ayomileh.R;
 public class PoinFragment extends Fragment {
 
     RecyclerView recyclerView;
-    private ArrayList<EventModel> data;
-    private EventAdapter adapter;
 
     public PoinFragment() {
         // Required empty public constructor
@@ -44,8 +36,7 @@ public class PoinFragment extends Fragment {
         btnTukarPoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ScanActivity.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "Penukaran Berhasil",Toast.LENGTH_SHORT).show();
             }
         });
         return view;

@@ -6,9 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.sisco.ayomileh.Fragment.EventFragment;
 import com.example.sisco.ayomileh.Fragment.InfoFragment;
-import com.example.sisco.ayomileh.Fragment.PemilihFragment;
 import com.example.sisco.ayomileh.Fragment.ProfilFragment;
-import com.example.sisco.ayomileh.Fragment.ScanFragment;
 
 /**
  * Created by Princhaa on /22Oct/17.

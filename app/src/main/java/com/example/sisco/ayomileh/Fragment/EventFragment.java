@@ -2,33 +2,22 @@ package com.example.sisco.ayomileh.Fragment;
 
 
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
 import com.example.sisco.ayomileh.Activity.DaftarCalonActivity;
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
-import com.example.sisco.ayomileh.Activity.RequestActivity;
 import com.example.sisco.ayomileh.Activity.ScanActivity;
-import com.example.sisco.ayomileh.Adapter.EventAdapter;
-import com.example.sisco.ayomileh.Model.EventModel;
 import com.example.sisco.ayomileh.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -43,10 +32,9 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class EventFragment extends Fragment implements View.OnClickListener{
 
-    private ArrayList<EventModel> data;
-    private EventAdapter adapter;
 
-    EditText edtDate, edtLocation;
+
+    EditText edtDate, edtLocation,tanda;
     TextView jml_pemilih, jml_belum;
     Button milih, calon, qr;
 
@@ -57,7 +45,7 @@ public class EventFragment extends Fragment implements View.OnClickListener{
 
     FirebaseAuth auth;
     Query database;
-    DatabaseReference databases;
+    DatabaseReference databases,datas;
 
     public EventFragment() {}
 
@@ -75,7 +63,7 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         milih = (Button) view.findViewById(R.id.milih);
         calon = (Button) view.findViewById(R.id.calon);
         qr = (Button) view.findViewById(R.id.qr);
-
+        tanda = (EditText) view.findViewById(R.id.txt_tanda);
 
         edtDate.setOnClickListener(this);
         edtLocation.setOnClickListener(this);
@@ -84,7 +72,7 @@ public class EventFragment extends Fragment implements View.OnClickListener{
         qr.setOnClickListener(this);
 
         auth = FirebaseAuth.getInstance();
-        getDataFromDatabase();
+        getDataFromDatabase(auth.getCurrentUser().getUid());
 
         return view;
     }
@@ -110,7 +98,25 @@ public class EventFragment extends Fragment implements View.OnClickListener{
     }
 
 
-    private void getDataFromDatabase(){
+    private void getDataFromDatabase(String id){
+        datas = FirebaseDatabase.getInstance().getReference("users/"+id);
+        datas.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String status = dataSnapshot.child("status").getValue().toString();
+                if (status.equals("Sudah Memilih")){
+
+                    tanda.setVisibility(View.INVISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         database = FirebaseDatabase.getInstance().getReference("users").orderByChild("status").equalTo("Belum Memilih");
         database.addListenerForSingleValueEvent(new ValueEventListener() {
