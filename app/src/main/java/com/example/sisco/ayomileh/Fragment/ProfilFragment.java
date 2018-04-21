@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sisco.ayomileh.Activity.DiajakActivity;
 import com.example.sisco.ayomileh.Activity.EditProfileActivity;
@@ -82,6 +83,8 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
 
         auth = FirebaseAuth.getInstance();
         getDataFromDatabase(auth.getCurrentUser().getUid());
+
+        System.out.println(jml_mengajak.getText().length());
 
         return view;
     }
