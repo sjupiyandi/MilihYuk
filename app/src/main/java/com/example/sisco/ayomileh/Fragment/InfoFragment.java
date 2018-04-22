@@ -48,6 +48,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
         tahapan.setOnClickListener(this);
         pelanggaran.setOnClickListener(this);
         lapor.setOnClickListener(this);
+        tentang.setOnClickListener(this);
 
         return view;
     }
