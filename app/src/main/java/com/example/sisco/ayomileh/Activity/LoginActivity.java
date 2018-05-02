@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Toolbar toolbar;
     EditText edtUsername, edtPassword;
     Button btnMasuk;
-    TextView txtDaftar;
+    TextView error;
     ProgressBar pgBar;
     FirebaseAuth auth;
 
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edtPassword = (EditText) findViewById(R.id.edt_password);
         btnMasuk = (Button) findViewById(R.id.btn_masuk);
         pgBar = (ProgressBar) findViewById(R.id.pgbar);
+        error = (TextView) findViewById(R.id.txt_error);
 
         btnMasuk.setOnClickListener(this);
         auth = FirebaseAuth.getInstance();
@@ -58,15 +60,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == btnMasuk){
             pgBar.setVisibility(View.VISIBLE);
             btnMasuk.setVisibility(View.GONE);
+            if(TextUtils.isEmpty(edtUsername.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString()) ){
+                error.setText("Data tidak boleh kosong");
+                pgBar.setVisibility(View.GONE);
+                btnMasuk.setVisibility(View.VISIBLE);
+                return;
+            }
+
+            if (edtUsername.getText().toString().equals("petugas") && edtPassword.getText().toString().equals("123456")){
+                Intent intent = new Intent(LoginActivity.this, PetugasActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
             auth.signInWithEmailAndPassword(edtUsername.getText().toString()+ "@gmail.com", edtPassword.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (!task.isSuccessful()) {
+                     if (!task.isSuccessful()) {
                         // there was an error
                         if(edtPassword.getText().toString().length() < 6){
-                            Toast.makeText(LoginActivity.this, "Password salah", Toast.LENGTH_SHORT).show();
+                            error.setText("Password salah");
                         } else {
-                            Toast.makeText(LoginActivity.this, "Username atau password salah", Toast.LENGTH_SHORT).show();
+                            error.setText("Username atau password salah");
                         }
                         pgBar.setVisibility(View.GONE);
                         btnMasuk.setVisibility(View.VISIBLE);

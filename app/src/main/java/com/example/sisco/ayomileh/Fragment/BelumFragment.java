@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.example.sisco.ayomileh.Activity.DaftarTetapActivity;
 import com.example.sisco.ayomileh.Activity.PenggunaActivity;
 import com.example.sisco.ayomileh.Activity.UserActivity;
+import com.example.sisco.ayomileh.Model.PemilihModel;
 import com.example.sisco.ayomileh.Model.UserModel;
 import com.example.sisco.ayomileh.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -28,11 +30,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class BelumFragment extends Fragment {
 
-    private RecyclerView mUsersList;
+    private RecyclerView mUsersList, mUsersList2;
 
-    private DatabaseReference mUsersDatabase;
+    private DatabaseReference mUsersDatabase,mUsersDatabase2;
 
-    private LinearLayoutManager mLayoutManager;
+    private LinearLayoutManager mLayoutManager, mLayoutManager2;
     FirebaseUser mCurrent_user;
 
     public BelumFragment() {
@@ -57,18 +59,24 @@ public class BelumFragment extends Fragment {
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("users");
         mUsersDatabase.keepSynced(true);
 
-        mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
-
         mLayoutManager = new LinearLayoutManager(getContext());
-        mLayoutManager.setReverseLayout(true);
-        mLayoutManager.setStackFromEnd(true);
 
         mUsersList = (RecyclerView) view.findViewById(R.id.recycler_view);
-        mUsersList.setHasFixedSize(true);
+
         mUsersList.setLayoutManager(mLayoutManager);
 
 
+        mUsersDatabase2 = FirebaseDatabase.getInstance().getReference().child("tps").child("1").child("DaftarPemilih");
+        mUsersDatabase2.keepSynced(true);
 
+        mLayoutManager2 = new LinearLayoutManager(getContext());
+
+        mUsersList2 = (RecyclerView) view.findViewById(R.id.recycler_view2);
+
+        mUsersList2.setLayoutManager(mLayoutManager2);
+
+
+        mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
         return view;
     }
 
@@ -76,6 +84,12 @@ public class BelumFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        getBelum();
+        getBelumTerdaftar();
+
+    }
+
+    private void getBelum(){
         FirebaseRecyclerAdapter<UserModel, UsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<UserModel, UsersViewHolder>(
 
                 UserModel.class,
@@ -97,9 +111,9 @@ public class BelumFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                            Intent intent = new Intent(getContext(), PenggunaActivity.class);
-                            intent.putExtra("user_id", user_id);
-                            startActivity(intent);
+                        Intent intent = new Intent(getContext(), PenggunaActivity.class);
+                        intent.putExtra("user_id", user_id);
+                        startActivity(intent);
 
                     }
                 });
@@ -120,17 +134,54 @@ public class BelumFragment extends Fragment {
                 });
             }
         };
-
+        firebaseRecyclerAdapter.notifyDataSetChanged();
         mUsersList.setAdapter(firebaseRecyclerAdapter);
 
     }
 
+    private void getBelumTerdaftar(){
+        FirebaseRecyclerAdapter<PemilihModel, UsersViewHolder> firebaseRecyclerAdapter2 = new FirebaseRecyclerAdapter<PemilihModel, UsersViewHolder>(
+
+                PemilihModel.class,
+                R.layout.item_daftartetap,
+                UsersViewHolder.class,
+                mUsersDatabase2.orderByChild("app").equalTo("false")
+
+        ) {
+            @Override
+            protected void populateViewHolder(final UsersViewHolder usersViewHolder, PemilihModel users, int position) {
+
+                usersViewHolder.setDisplayName(users.getNama());
+                usersViewHolder.setUserStatus(users.getAlamat());
+                usersViewHolder.setJenisStatus(users.getJk());
+
+                final String user_id = getRef(position).getKey();
+
+                usersViewHolder.mView.findViewById(R.id.sudah).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(getContext(), PenggunaActivity.class);
+                        intent.putExtra("nama", usersViewHolder.userNameView.getText().toString());
+                        intent.putExtra("alamat", usersViewHolder.userStatusView.getText().toString());
+                        startActivity(intent);
+
+                    }
+                });
 
 
+            }
+        };
+        firebaseRecyclerAdapter2.notifyDataSetChanged();
+        mUsersList2.setAdapter(firebaseRecyclerAdapter2);
+
+    }
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
+        TextView userNameView ;
+        TextView userStatusView ;
 
         public UsersViewHolder(View itemView) {
             super(itemView);
@@ -141,14 +192,14 @@ public class BelumFragment extends Fragment {
 
         public void setDisplayName(String name){
 
-            TextView userNameView = (TextView) mView.findViewById(R.id.txt_name);
+            userNameView= (TextView) mView.findViewById(R.id.txt_name);
             userNameView.setText(name);
 
         }
 
         public void setUserStatus(String status){
 
-            TextView userStatusView = (TextView) mView.findViewById(R.id.txt_address);
+            userStatusView= (TextView) mView.findViewById(R.id.txt_address);
             userStatusView.setText(status);
 
         }

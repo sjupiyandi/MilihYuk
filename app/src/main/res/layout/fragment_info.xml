@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Informasi Pilkada"
+                android:text="Informasi Pilgub"
                 android:textSize="18dp"
                 android:textColor="@color/putih"/>
 
@@ -162,7 +162,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pelanggaran Pilkada"
+                        android:text="Pelanggaran Pilgub"
                         android:textSize="18sp"
                         android:layout_gravity="center"
                         android:textColor="@color/hitam"

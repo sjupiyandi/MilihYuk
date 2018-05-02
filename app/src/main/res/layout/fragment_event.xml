@@ -3,7 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/pgbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+
     <ScrollView
+        android:id="@+id/sc_event"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

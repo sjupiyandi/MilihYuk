@@ -123,6 +123,7 @@
                 android:drawableLeft="@drawable/ic_phone2"/>
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginLeft="32dp"

@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.sisco.ayomileh.Activity.DiajakActivity;
@@ -28,6 +30,9 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class ProfilFragment extends Fragment implements View.OnClickListener{
+
+    ScrollView sc_profile;
+    ProgressBar pg;
 
     TextView  jenis_kelamin, nama,alamat, keluar, ubah, status, tps, jml_mengajak, jml_poin, jml_diajak;
     LinearLayout mengajak, diajak, poin;
@@ -54,6 +59,9 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
+
+        sc_profile = (ScrollView) view.findViewById(R.id.sc_profile);
+        pg = (ProgressBar) view.findViewById(R.id.pgbar);
 
         jenis_kelamin = (TextView) view.findViewById(R.id.jenis_kelamin);
         nama = (TextView) view.findViewById(R.id.nama);
@@ -158,6 +166,8 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 cDiajak = String.valueOf(dataSnapshot.getChildrenCount());
                 jml_diajak.setText(cDiajak);
+                pg.setVisibility(View.GONE);
+                sc_profile.setVisibility(View.VISIBLE);
             }
 
             @Override

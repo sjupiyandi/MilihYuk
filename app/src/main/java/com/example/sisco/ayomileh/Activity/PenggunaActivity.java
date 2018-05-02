@@ -22,7 +22,8 @@ public class PenggunaActivity extends AppCompatActivity implements View.OnClickL
 
     Toolbar toolbar;
     TextView nama, alamat, nohp, status;
-    String user_id;
+    String user_id, Nama, Alamat;
+    View view;
 
     FirebaseAuth auth;
     DatabaseReference database;
@@ -42,13 +43,25 @@ public class PenggunaActivity extends AppCompatActivity implements View.OnClickL
         alamat = (TextView) findViewById(R.id.edt_alamat);
         nohp = (TextView) findViewById(R.id.edt_no_hp);
         status = (TextView) findViewById(R.id.edt_status);
+        view = (View) findViewById(R.id.view);
 
         nohp.setOnClickListener(this);
 
         Bundle extras = getIntent().getExtras();
         user_id = extras.getString("user_id");
+        Nama = extras.getString("nama");
+        Alamat = extras.getString("alamat");
         auth = FirebaseAuth.getInstance();
-        getDataFromDatabase(user_id);
+        if (user_id != null){
+            getDataFromDatabase(user_id);
+        }else{
+            nama.setText(Nama);
+            alamat.setText(Alamat);
+            nohp.setVisibility(View.GONE);
+            view.setVisibility(View.GONE);
+            status.setText("Belum Mendaftar Aplikasi");
+        }
+
     }
 
     @Override

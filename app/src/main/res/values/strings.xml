@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tes">\"Hello blank fragment\"</string>
+    <string name="belumterdaftar">Masukkan No. KTP Pemilih untuk mengubah status mengjadi \"Sudah Memilih\"</string>
     <string name="scanqr">Scan QR berfungsi sebagai alternatif pengganti dari cap jari. Dengan melakukan Scan QR menandakan bahwa Anda sudah memilih pada TPS yang terdaftar nama anda.</string>
     <string name="penggunaanScan">1. Anda harus datang ke TPS terlebih dahulu dan sudah selesai memilih.\n2. Tanya ke petugas bahwa akan melakukan
      scan QR untuk memilih.\n3. Tekan tombol \"Scan QR\" di bawah\n4. Akan muncul tampilan camera\n5. Arahkan ke kode QR yang ditunjukkan oleh

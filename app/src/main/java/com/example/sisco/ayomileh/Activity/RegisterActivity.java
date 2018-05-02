@@ -33,12 +33,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     Toolbar toolbar;
     EditText edtUsername, edtPassword, edtKonfirmasi;
-    String nama,alamat ,edtNoKtp, edtNoKk, edtNoTps, jenis_kelamin;
+    String nama,alamat ,edtNoKtp, edtNoKk, edtNoTps, jenis_kelamin,id;
     Button btnDaftar;
     ProgressBar pgbar;
+    TextView error;
 
     FirebaseAuth auth;
-    DatabaseReference database;
+    DatabaseReference database,databases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         edtKonfirmasi = (EditText) findViewById(R.id.edt_konfirmasi);
         btnDaftar = (Button) findViewById(R.id.btn_daftar);
         pgbar = (ProgressBar) findViewById(R.id.pgbar);
+        error = (TextView) findViewById(R.id.txt_error);
 
         btnDaftar.setOnClickListener(this);
 
@@ -67,6 +69,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         edtNoKk = extras.getString("no_kk");
         edtNoTps = extras.getString("no_tps");
         jenis_kelamin = extras.getString("jenis_kelamin");
+        id = extras.getString("id");
+
     }
 
     @Override
@@ -85,14 +89,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             String konfirmasi = edtKonfirmasi.getText().toString();
 
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(konfirmasi)){
-                Toast.makeText(this, "Data tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                error.setText("Data tidak boleh kosong");
                 btnDaftar.setVisibility(View.VISIBLE);
                 pgbar.setVisibility(View.GONE);
                 return;
             }
 
             if(password.length() < 6){
-                Toast.makeText(this, "Password tidak boleh kurang dari 6", Toast.LENGTH_SHORT).show();
+                error.setText("Password tidak boleh kurang dari 6");
                 btnDaftar.setVisibility(View.VISIBLE);
                 pgbar.setVisibility(View.GONE);
                 return;
@@ -104,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         database = FirebaseDatabase.getInstance().getReference();
                         writeNewUser(auth.getCurrentUser().getUid(), email);
-                        getDataFromDatabase(auth.getCurrentUser().getUid());
+                        getDataFromDatabase(auth.getCurrentUser().getUid(),id);
                         updateData();
                         Intent intent = new Intent(RegisterActivity.this, EditProfileActivity.class);
                         startActivity(intent);
@@ -112,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
             }else {
-                Toast.makeText(this, "Password dan konfirmasi password tidak sama", Toast.LENGTH_SHORT).show();
+                error.setText("Password dan konfirmasi password tidak sama");
                 btnDaftar.setVisibility(View.VISIBLE);
                 pgbar.setVisibility(View.GONE);
                 return;
@@ -127,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         database.updateChildren(childUpdates);
     }
 
-    private void getDataFromDatabase(String userId){
+    private void getDataFromDatabase(String userId, String id){
         database = FirebaseDatabase.getInstance().getReference("users/" + userId);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -141,6 +145,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
+
+        databases = FirebaseDatabase.getInstance().getReference("tps/1/DaftarPemilih/" + id);
+        databases.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                databases.child("app").setValue("true");
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void updateData(){

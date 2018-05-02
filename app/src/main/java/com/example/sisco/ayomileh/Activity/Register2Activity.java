@@ -73,7 +73,7 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
             final String konfirmasi = edtNoTps.getText().toString();
 
             if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(konfirmasi)){
-                Toast.makeText(this, "Data tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                error.setText("Data tidak boleh kosong");
                 btnDaftar.setVisibility(View.VISIBLE);
                 pgbar.setVisibility(View.GONE);
                 return;
@@ -85,17 +85,18 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
                     database.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if (email.equals(dataSnapshot.child("NIK").getValue().toString()) && password.equals(dataSnapshot.child("KK").getValue().toString()) && konfirmasi.equals(dataSnapshot.child("No_TPS").getValue().toString())) {
+                            if (email.equals(dataSnapshot.child("nik").getValue().toString()) && password.equals(dataSnapshot.child("kk").getValue().toString()) && konfirmasi.equals(dataSnapshot.child("no_tps").getValue().toString())) {
                                 check = false;
                                 Intent intent = new Intent(Register2Activity.this, RegisterActivity.class);
-                                intent.putExtra("nama", dataSnapshot.child("Nama").getValue().toString());
-                                intent.putExtra("alamat", dataSnapshot.child("Alamat").getValue().toString());
-                                intent.putExtra("jenis_kelamin", dataSnapshot.child("JK").getValue().toString());
+                                intent.putExtra("nama", dataSnapshot.child("nama").getValue().toString());
+                                intent.putExtra("alamat", dataSnapshot.child("alamat").getValue().toString());
+                                intent.putExtra("jenis_kelamin", dataSnapshot.child("jk").getValue().toString());
                                 intent.putExtra("no_ktp", email);
                                 intent.putExtra("no_kk", password);
                                 intent.putExtra("no_tps", konfirmasi);
+                                intent.putExtra("id", dataSnapshot.getKey().toString());
                                 startActivity(intent);
-                                finish();
+
                             }else {
                                 error.setText("Data anda tidak ditemukan");
                                 btnDaftar.setVisibility(View.VISIBLE);

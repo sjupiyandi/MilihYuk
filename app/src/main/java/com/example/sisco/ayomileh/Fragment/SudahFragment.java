@@ -56,8 +56,7 @@ public class SudahFragment extends Fragment {
         mUsersDatabase.keepSynced(true);
 
         mLayoutManager = new LinearLayoutManager(getContext());
-        mLayoutManager.setReverseLayout(true);
-        mLayoutManager.setStackFromEnd(true);
+        mLayoutManager.setReverseLayout(false);
 
         mUsersList = (RecyclerView) view.findViewById(R.id.recycler_view);
         mUsersList.setHasFixedSize(true);

@@ -23,6 +23,8 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
 
     LinearLayout profileCalon, tahapan, pelanggaran, lapor, tentang;
 
+
+
     public InfoFragment() {
         // Required empty public constructor
     }
