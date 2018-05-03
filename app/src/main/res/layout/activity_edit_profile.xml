@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Ubah Profil"
+                android:textSize="18dp"
                 android:textColor="#FFFF" />
 
         </RelativeLayout>
@@ -90,6 +91,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:hint="No. Hp"
+        android:inputType="number"
         android:textColor="#000"
         android:drawablePadding="8dp"
         android:drawableLeft="@drawable/ic_phone"/>

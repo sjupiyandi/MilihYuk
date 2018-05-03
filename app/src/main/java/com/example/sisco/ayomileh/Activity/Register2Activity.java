@@ -96,7 +96,6 @@ public class Register2Activity extends AppCompatActivity implements View.OnClick
                                 intent.putExtra("no_tps", konfirmasi);
                                 intent.putExtra("id", dataSnapshot.getKey().toString());
                                 startActivity(intent);
-
                             }else {
                                 error.setText("Data anda tidak ditemukan");
                                 btnDaftar.setVisibility(View.VISIBLE);

@@ -64,10 +64,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if(view == btnSave){
             updateData();
+            Toast.makeText(this, "Data berhasil diubah", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
-            Toast.makeText(this, "Data berhasil diubah", Toast.LENGTH_SHORT).show();
+
         } else if(view == btnAva){
             Toast.makeText(this, "Maaf saat ini belum tersedia", Toast.LENGTH_SHORT).show();
         }

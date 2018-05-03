@@ -83,6 +83,12 @@ public class EventFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        getDataFromDatabase(auth.getCurrentUser().getUid());
+    }
+
+    @Override
     public void onClick(View view) {
         if (view == edtDate){
             new DatePickerDialog(getActivity(), date, myCalendar

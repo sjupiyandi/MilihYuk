@@ -24,15 +24,18 @@ import com.example.sisco.ayomileh.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class BelumFragment extends Fragment {
 
     private RecyclerView mUsersList, mUsersList2;
 
-    private DatabaseReference mUsersDatabase,mUsersDatabase2;
+    private DatabaseReference mUsersDatabase,mUsersDatabase2,database;
 
     private LinearLayoutManager mLayoutManager, mLayoutManager2;
     FirebaseUser mCurrent_user;
@@ -62,6 +65,7 @@ public class BelumFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
 
         mUsersList = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mUsersList.setHasFixedSize(false);
 
         mUsersList.setLayoutManager(mLayoutManager);
 
@@ -72,6 +76,7 @@ public class BelumFragment extends Fragment {
         mLayoutManager2 = new LinearLayoutManager(getContext());
 
         mUsersList2 = (RecyclerView) view.findViewById(R.id.recycler_view2);
+        mUsersList2.setHasFixedSize(false);
 
         mUsersList2.setLayoutManager(mLayoutManager2);
 
@@ -121,15 +126,30 @@ public class BelumFragment extends Fragment {
                 usersViewHolder.mView.findViewById(R.id.btn_ajak).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (user_id.equals(mCurrent_user.getUid())){
-                            Toast.makeText(getContext(), "Anda tidak bisa mengajak diri anda sendiri.", Toast.LENGTH_LONG).show();
+                        database = FirebaseDatabase.getInstance().getReference("users/" + user_id);
+                        database.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                UserModel userModel = dataSnapshot.getValue(UserModel.class);
+                                if (user_id.equals(mCurrent_user.getUid())){
+                                    Toast.makeText(getContext(), "Anda tidak bisa mengajak diri anda sendiri.", Toast.LENGTH_LONG).show();
 
-                        }else {
-                            Intent intent = new Intent(getContext(), UserActivity.class);
-                            intent.putExtra("user_id", user_id);
-                            startActivity(intent);
-                            getActivity().finish();
-                        }
+                                }else if (userModel.getAjak().equals("true")){
+                                    Toast.makeText(getContext(), "Pengguna ini sudah menerima ajakan orang lain.", Toast.LENGTH_LONG).show();
+                                }else {
+                                    Intent intent = new Intent(getContext(), UserActivity.class);
+                                    intent.putExtra("user_id", user_id);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
                     }
                 });
             }
@@ -137,9 +157,6 @@ public class BelumFragment extends Fragment {
         firebaseRecyclerAdapter.notifyDataSetChanged();
         mUsersList.setAdapter(firebaseRecyclerAdapter);
 
-    }
-
-    private void getBelumTerdaftar(){
         FirebaseRecyclerAdapter<PemilihModel, UsersViewHolder> firebaseRecyclerAdapter2 = new FirebaseRecyclerAdapter<PemilihModel, UsersViewHolder>(
 
                 PemilihModel.class,
@@ -173,7 +190,11 @@ public class BelumFragment extends Fragment {
             }
         };
         firebaseRecyclerAdapter2.notifyDataSetChanged();
-        mUsersList2.setAdapter(firebaseRecyclerAdapter2);
+        mUsersList2.setAdapter( firebaseRecyclerAdapter2);
+    }
+
+    private void getBelumTerdaftar(){
+
 
     }
 

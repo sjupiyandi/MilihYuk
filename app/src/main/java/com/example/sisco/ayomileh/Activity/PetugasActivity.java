@@ -42,6 +42,7 @@ public class PetugasActivity extends AppCompatActivity implements View.OnClickLi
         if (view == calon1){
             Intent intent = new Intent(PetugasActivity.this, BelumTerdaftarActivity.class);
             startActivity(intent);
+            finish();
         }else if(view == calon2){
             Intent intent = new Intent(PetugasActivity.this, SudahTerdaftarActivity.class);
             startActivity(intent);

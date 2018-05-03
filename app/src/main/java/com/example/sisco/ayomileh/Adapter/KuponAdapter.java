@@ -41,7 +41,6 @@ public class KuponAdapter extends RecyclerView.Adapter<KuponAdapter.ViewHolder> 
 
         viewHolder.txtPersenan.setText(kuponModels.get(i).getNilaiKupon()+"%");
         viewHolder.txtDiskon.setText(kuponModels.get(i).getKeteranganKupon());
-        viewHolder.imgKupon.setImageResource(kuponModels.get(i).getLogoKupon());
 
         viewHolder.btnTunjukkan.setOnClickListener(new View.OnClickListener() {
             @Override

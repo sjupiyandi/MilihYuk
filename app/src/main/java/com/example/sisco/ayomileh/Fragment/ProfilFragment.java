@@ -87,8 +87,6 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         auth = FirebaseAuth.getInstance();
         getDataFromDatabase(auth.getCurrentUser().getUid());
 
-        System.out.println(jml_mengajak.getText().length());
-
         return view;
     }
 
@@ -115,9 +113,10 @@ public class ProfilFragment extends Fragment implements View.OnClickListener{
         }else if (view == diajak){
             Intent intent = new Intent(getActivity(), DiajakActivity.class);
             getActivity().startActivity(intent);
-
         }else if(view == poin){
-            getActivity().startActivity(new Intent(getActivity(),PoinKuponActivity.class));
+            Intent intent = new Intent(getActivity(), PoinKuponActivity.class);
+            getActivity().startActivity(intent);
+
         }
     }
 

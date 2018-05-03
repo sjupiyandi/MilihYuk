@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/persen"
                 android:layout_marginTop="25dp"
                 android:gravity="center_horizontal"
                 android:text="Diskon 20% dari total belanja."

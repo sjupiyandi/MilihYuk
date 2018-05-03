@@ -73,7 +73,7 @@
         android:layout_marginTop="32dp"
         android:hint="No.KTP"
         android:textColor="@color/hitam"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:drawablePadding="8dp"
         android:drawableLeft="@drawable/ic_person"/>
 
@@ -85,6 +85,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:hint="No.KK"
+        android:inputType="number"
         android:textColor="@color/hitam"
         android:drawablePadding="8dp"
         android:drawableLeft="@drawable/ic_person"/>
@@ -99,6 +100,7 @@
         android:hint="Masukkan Nomor TPS"
         android:textColor="@color/hitam"
         android:drawablePadding="8dp"
+        android:inputType="number"
         android:drawableLeft="@drawable/ic_person"/>
 
     <TextView

@@ -14,11 +14,13 @@ public class UserModel {
     public String status;
     public String point;
     public String jenis_kelamin;
+    public String ajak;
+    public String kupon;
 
     public UserModel() {
     }
 
-    public UserModel(String nama, String no_ktp, String no_kk, String no_tps, String no_hp, String alamat, String status, String point, String jenis_kelamin) {
+    public UserModel(String nama, String no_ktp, String no_kk, String no_tps, String no_hp, String alamat, String status, String point, String jenis_kelamin, String ajak, String kupon) {
         this.nama = nama;
         this.no_ktp = no_ktp;
         this.no_kk = no_kk;
@@ -28,6 +30,8 @@ public class UserModel {
         this.status = status;
         this.point = point;
         this.jenis_kelamin = jenis_kelamin;
+        this.ajak = ajak;
+        this.kupon = kupon;
     }
 
     public String getNama() {
@@ -100,5 +104,21 @@ public class UserModel {
 
     public void setJenis_kelamin(String jenis_kelamin) {
         this.jenis_kelamin = jenis_kelamin;
+    }
+
+    public String getAjak() {
+        return ajak;
+    }
+
+    public void setAjak(String ajak) {
+        this.ajak = ajak;
+    }
+
+    public String getKupon() {
+        return kupon;
+    }
+
+    public void setKupon(String kupon) {
+        this.kupon = kupon;
     }
 }

@@ -9,14 +9,17 @@ import java.util.ArrayList;
  */
 
 public class KuponModel {
-    int LogoKupon,nilaiKupon;
-    String keteranganKupon,idKupon;
+    public int nilaiKupon;
+    public String keteranganKupon,idKupon,status;
 
-    public KuponModel(int logoKupon, int nilaiKupon, String keteranganKupon, String idKupon) {
-        LogoKupon = logoKupon;
+    public KuponModel() {
+    }
+
+    public KuponModel(int nilaiKupon, String keteranganKupon, String idKupon, String status) {
         this.nilaiKupon = nilaiKupon;
         this.keteranganKupon = keteranganKupon;
         this.idKupon = idKupon;
+        this.status = status;
     }
 
     public String getIdKupon() {
@@ -27,13 +30,6 @@ public class KuponModel {
         this.idKupon = idKupon;
     }
 
-    public int getLogoKupon() {
-        return LogoKupon;
-    }
-
-    public void setLogoKupon(int logoKupon) {
-        LogoKupon = logoKupon;
-    }
 
     public int getNilaiKupon() {
         return nilaiKupon;
@@ -51,11 +47,11 @@ public class KuponModel {
         this.keteranganKupon = keteranganKupon;
     }
 
-    public static ArrayList<KuponModel> createRedeem(){
-        ArrayList<KuponModel> kuponModels = new ArrayList<>();
+    public String getStatus() {
+        return status;
+    }
 
-        kuponModels.add(new KuponModel(R.drawable.logo_infomaret,20,"Diskon Infomaret","123A"));
-
-        return kuponModels;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +31,8 @@ public class DiajakActivity extends AppCompatActivity {
     private DatabaseReference mUsersDatabase;
     private LinearLayoutManager mLayoutManager;
     public FirebaseUser mCurrent_user;
-    DatabaseReference database;
+    DatabaseReference database,databases;
+    FirebaseAuth auth;
     int point;
 
     @Override
@@ -54,6 +56,8 @@ public class DiajakActivity extends AppCompatActivity {
         mUsersList = (RecyclerView) findViewById(R.id.recycler_view);
         mUsersList.setHasFixedSize(true);
         mUsersList.setLayoutManager(mLayoutManager);
+
+        auth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -83,6 +87,7 @@ public class DiajakActivity extends AppCompatActivity {
                 usersViewHolder.setPesanName(users.getPesan());
 
                 final String user_id = getRef(position).getKey();
+                final String user_id2 = auth.getCurrentUser().getUid();
 
                 usersViewHolder.mView.findViewById(R.id.btn_abaikan).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,7 +98,7 @@ public class DiajakActivity extends AppCompatActivity {
                 usersViewHolder.mView.findViewById(R.id.btn_terima).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        getDataFromDatabase(user_id);
+                        getDataFromDatabase(user_id,user_id2);
                         mUsersDatabase.removeValue();
                     }
                 });
@@ -105,8 +110,8 @@ public class DiajakActivity extends AppCompatActivity {
 
     }
 
-    private void getDataFromDatabase(String userId){
-        database = FirebaseDatabase.getInstance().getReference("users/" + userId);
+    private void getDataFromDatabase(String user_id, String userId){
+        database = FirebaseDatabase.getInstance().getReference("users/" + user_id);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -114,6 +119,21 @@ public class DiajakActivity extends AppCompatActivity {
                 point = Integer.parseInt(dataSnapshot.child("point").getValue().toString());
                 point++;
                 database.child("point").setValue(String.valueOf(point));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databases = FirebaseDatabase.getInstance().getReference("users/" + userId);
+        databases.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                databases.child("ajak").setValue("true");
+
             }
 
             @Override

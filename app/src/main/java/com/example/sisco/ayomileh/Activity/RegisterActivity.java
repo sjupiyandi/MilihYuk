@@ -125,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void writeNewUser(String userId, String email){
-        UserModel users = new UserModel("", "", "", "", "", "", "","","");
+        UserModel users = new UserModel("", "", "", "", "", "", "","","","","");
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/users/" + userId, users);
         database.updateChildren(childUpdates);
@@ -171,5 +171,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         database.child("jenis_kelamin").setValue(jenis_kelamin);
         database.child("status").setValue("Belum Memilih");
         database.child("point").setValue("0");
+        database.child("kupon").setValue("false");
+        database.child("ajak").setValue("false");
     }
 }
